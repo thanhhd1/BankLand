@@ -1,0 +1,66 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Dịch Vụ</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Name.valid }">
+                <label class="col-md-12">Tên Dịch Vụ<span class="error-message">*</span>: </label>
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="Name" [(ngModel)]="model.Name" #Name="ngModel"
+                    required />
+                  <div *ngIf="f.submitted && Name.errors && Name.errors.required" class="error-message">Thông tin bắt
+                    buộc.</div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Price.valid }">
+                <label class="col-md-12">Giá<span class="error-message">*</span>:</label>
+                <div class="col-md-12">
+                  <input type="number" class="form-control" name="Price" [(ngModel)]="model.Price" #Price="ngModel"
+                    required />
+                  <div *ngIf="f.submitted && Price.errors && Price.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !UnitName.valid }">
+                <label class="col-md-12">Tên Đơn Vị Tính<span class="error-message">*</span>: </label>
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="UnitName" [(ngModel)]="model.UnitName"
+                    #UnitName="ngModel" required />
+                  <div *ngIf="f.submitted && UnitName.errors && UnitName.errors.required" class="error-message">Thông
+                    tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions text-right">
+            <p class="text-left error-message" style="font-size: 11px!important;">* Thông tin bắt buộc</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Lưu</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Hủy</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

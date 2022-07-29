@@ -1,0 +1,30 @@
+<div appInitMenu="" [isNeedChange]="stringChange" (onChangeMode)="changeMode($event)">
+  <nav
+    class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow navbar-static-top navbar-light navbar-brand-center">
+    <div class="navbar-wrapper" app-header  (onChangePassword)="changepassword()"></div>
+  </nav>
+
+  <div class="header-navbar navbar-expand-sm navbar navbar-horizontal navbar-fixed navbar-light navbar-without-dd-arrow navbar-shadow"
+    role="navigation" data-menu="menu-wrapper">
+    <div class="navbar-container main-menu-content" data-menu="menu-container" app-side-bar (onChangePassword)="changepassword()">
+    </div>
+  </div>
+
+  <!-- <div id="sidebar" class="col-lg-3 col-md-3 col-3 ">
+      <div class="navbar-container main-menu-content" data-menu="menu-container" app-side-bar (onChangePassword)="changepassword()">
+      </div>
+    </div> -->
+
+  <!-- BEGIN: Content-->
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- END: Content-->
+  <div class="sidenav-overlay"></div>
+  <div class="drag-target"></div>
+  <!-- <footer class="footer fixed-bottom footer-static footer-light navbar-shadow" app-footer>
+
+  </footer>  -->
+</div> 

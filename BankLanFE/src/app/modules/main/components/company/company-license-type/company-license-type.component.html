@@ -1,0 +1,93 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Giấy Phép Đăng Ký Lưu Trú</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !LicenseTypeID.valid }">
+                <label class="col-md-12">Loại Giấy Phép<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <select class="form-control" name="LicenseTypeID" #LicenseTypeID="ngModel"
+                    [(ngModel)]="model.LicenseTypeID" required>
+                    <option value="">--Chọn Mục--</option>
+                    <option *ngFor="let item of licenseTypes " [value]="item.ID">{{item.Name}}</option>
+                  </select>
+                  <div *ngIf="f.submitted && LicenseTypeID.errors && LicenseTypeID.errors.required"
+                    class="error-message">Thông tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !LicenseNumber.valid }">
+                <label class="col-md-12">Số Giấy Phép<span class="error-message">*</span>: </label>
+                <div class="col-md-12 mx-auto">
+                  <input type="text" class="form-control" name="LicenseNumber" [(ngModel)]="model.LicenseNumber"
+                    #LicenseNumber="ngModel" required />
+                  <div *ngIf="f.submitted && LicenseNumber.errors && LicenseNumber.errors.required"
+                    class="error-message">Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !LicenseDate.valid }">
+                <label class="col-md-12">Ngày Cấp GP<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <app-date-time-picker name="LicenseDate" [(ngModel)]="model.LicenseDate" #LicenseDate="ngModel"
+                    [hasTime]="false" required>
+                  </app-date-time-picker>
+                  <div *ngIf="f.submitted && LicenseDate.errors && LicenseDate.errors.required" class="error-message">
+                    Thông tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !ProviderBy.valid }">
+                <label class="col-md-12">Nơi Cấp<span class="error-message">*</span>: </label>
+                <div class="col-md-12 mx-auto">
+                  <input type="text" class="form-control" name="ProviderBy" [(ngModel)]="model.ProviderBy"
+                    #ProviderBy="ngModel" required />
+                  <div *ngIf="f.submitted && ProviderBy.errors && ProviderBy.errors.required"
+                    class="error-message">Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-md-12"></label>
+                <div class="col-md-12 mx-auto">
+                  <div class="skin skin-flat mt-1">
+                    <fieldset>
+                      <input class="icheckbox_flat-green checked" type="checkbox"  [(ngModel)]="model.IsPrimaryLicense" name="IsPrimaryLicense">
+                      <label for="IsPrimaryLicense">&nbsp; Là Giấy Phép Chính</label>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Lưu</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Hủy</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

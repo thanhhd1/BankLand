@@ -1,0 +1,157 @@
+<!-- BEGIN: Main Menu-->
+<ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
+    <!-- TODO -->
+    <!-- <li *ngIf="currentUser.Role == 'Administrator' || currentUser.Role == 'Employee_Historical' || currentUser.Role == 'Employee_Cultural_Services' || currentUser.Role == 'Employee_Travel_Services'"
+        class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="javascript:void(0)"
+            data-toggle="dropdown"><i class="la la-newspaper-o"></i><span>Thống Kê Báo Cáo</span></a>
+        <ul class="dropdown-menu">
+            <li *ngIf="currentUser.Role == 'Administrator' || currentUser.Role == 'Employee_Cultural_Services'"
+                data-menu="" class="nav navbar-nav" data-menu="dropdown">
+                <a class="dropdown-item" [routerLink]="['/','management','report-cultural-services']" data-toggle="">
+                    <i class="la la-hotel"></i><span>Thông Tin Quản Lý Dịch Vụ Văn Hóa</span>
+                </a>
+            </li>
+            <li *ngIf="currentUser.Role == 'Administrator' || currentUser.Role == 'Employee_Travel_Services'"
+                class="nav navbar-nav" data-menu="dropdown"><a class="dropdown-toggle nav-link"
+                    href="javascript:void(0)" [routerLink]="['/','management','report-travel-services']"
+                    data-toggle="dropdown"><i class="la la-cloud"></i><span>Thông Tin Quản Lý Dịch Vụ Du Lịch</span></a>
+            </li>
+            <li *ngIf="currentUser.Role == 'Administrator' || currentUser.Role == 'Employee_Travel_Services'"
+                class="nav navbar-nav" data-menu="dropdown"><a class="dropdown-toggle nav-link"
+                    href="javascript:void(0)" [routerLink]="['/','management','report-stay-information-manager']"
+                    data-toggle="dropdown"><i class="la la-cloud"></i><span>Thông Tin Quản Lý Lưu Trú</span></a>
+            </li>
+            <li *ngIf="currentUser.Role == 'Administrator' || currentUser.Role == 'Employee_Historical'"
+                class="nav navbar-nav" data-menu="dropdown"><a class="dropdown-toggle nav-link"
+                    href="javascript:void(0)" [routerLink]="['/','management','report-historical']"
+                    data-toggle="dropdown"><i class="la la-cloud"></i><span>Thông Tin Quản Lý Di Tích Lịch Sử</span></a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li *ngIf="currentUser.Role == 'CompanyAdmin'" class=" nav-item">
+        <a class="nav-link" [routerLink]="['/','management','dashboard']">
+            <i class="la la-home"></i><span>Dashboard</span>
+        </a>
+    </li>
+
+    <li *ngIf="currentUser.Role == 'Administrator' || currentUser.Role == 'CompanyAdmin' ||  currentUser.Role === 'Employee_Travel_Services'"
+        class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="javascript:void(0)"
+            data-toggle="dropdown"><i class="la la-newspaper-o"></i><span>Quản Lý Dịch Vụ Lưu Trú</span></a>
+        <ul class="dropdown-menu">
+            <li data-menu="">
+                <a class="dropdown-item" [routerLink]="['/','management','companys']" data-toggle="">
+                    <i class="la la-hotel"></i><span>Quản Lý Đăng Ký Kinh Doanh</span>
+                </a>
+            </li>
+            <li class="nav navbar-nav" data-menu="dropdown"><a class="dropdown-toggle nav-link"
+                    href="javascript:void(0)" [routerLink]="['/','management','services-management']"
+                    data-toggle="dropdown"><i class="la la-cloud"></i><span>Quản Lý Dịch Vụ</span></a>
+            </li>
+        </ul>
+    </li>
+
+    <li *ngIf="currentUser && (currentUser.Role === 'Administrator' || currentUser.Role === 'Employee_Cultural_Services')"
+        class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="javascript:void(0)"
+            data-toggle="dropdown"><i class="la la-share-alt"></i><span>Quản Lý Dịch Vụ Văn Hóa</span></a>
+        <ul class="dropdown-menu">
+            <li data-menu="">
+                <a class="dropdown-item" [routerLink]="['/','management','karaokes']" data-toggle="">
+                    <i class="la la-music"></i><span>Karaoke</span>
+                </a>
+            </li>
+            <li data-menu="">
+                <a class="dropdown-item" [routerLink]="['/','management','internets']" data-toggle="">
+                    <i class="la la-wifi"></i><span>Internet</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li *ngIf="currentUser && (currentUser.Role === 'Administrator' || currentUser.Role === 'Employee_Historical')"
+        class="dropdown nav-item" data-menu="dropdown">
+        <a class="dropdown-toggle nav-link" [routerLink]="['/','management','historical']" data-toggle=""><i
+                class="la la-folder-open"></i><span>Di Tích Lịch Sử</span></a>
+    </li>
+
+    <li *ngIf="currentUser.Role === 'Administrator' || currentUser.Role === 'Employee_Cultural_Services' || currentUser.Role === 'Employee_Travel_Services'"
+        class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="javascript:void(0)"
+            data-toggle="dropdown"><i class="la la-gear"></i><span>Quản Lý Hệ Thống</span></a>
+        <ul class="dropdown-menu">
+            <li data-menu="">
+                <a class="dropdown-item" [routerLink]="['/','management','license-types']" data-toggle="">
+                    <i class="la la-tags"></i><span>Loại Giấy Phép</span>
+                </a>
+            </li>
+
+            <li data-menu=""><a class="dropdown-item" [routerLink]="['/','management','organization']" data-toggle=""><i
+                        class="la la-user-secret"></i><span>Tổ Chức</span></a>
+            </li>
+            <li data-menu=""><a class="dropdown-item" [routerLink]="['/','management','representatives']"
+                    data-toggle=""><i class="la la-user-plus"></i><span>Người Đại Diện</span></a>
+            </li>
+            <li data-menu=""><a class="dropdown-item" [routerLink]="['/','management','room-types']" data-toggle=""><i
+                        class="la la-user-plus"></i><span>Loại Phòng</span></a>
+            </li>
+        </ul>
+    </li>
+
+    <li *ngIf="currentUser.Role == 'CompanyAdmin'" class="dropdown nav-item" data-menu="dropdown"><a
+            class="dropdown-toggle nav-link" href="javascript:void(0)" data-toggle="dropdown"><i
+                class="la la-building"></i><span>Quản Lý Đặt Phòng</span></a>
+        <ul class="dropdown-menu">
+            <li data-menu=""><a class="dropdown-item" [routerLink]="['/','management','room-manager']" data-toggle=""><i
+                        class="la la-hotel"></i><span>Danh Sách Phòng</span></a>
+            </li>
+            <li data-menu=""><a class="dropdown-item" [routerLink]="['/','management','orders']" data-toggle=""><i
+                        class="la la-list-alt"></i><span>Danh Sách Hóa Đơn</span></a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li *ngIf="currentUser.Role == 'CompanyAdmin' || currentUser.Role == 'Administrator'" class="nav navbar-nav"
+        data-menu="dropdown"><a class="dropdown-toggle nav-link" href="javascript:void(0)"
+            [routerLink]="['/','management','customers']" data-toggle="dropdown"><i class="la la-users"></i><span>Quản
+                Lý Khách Hàng</span></a>
+    </li>
+
+    <li *ngIf="currentUser.Role == 'Administrator'" class="nav navbar-nav" data-menu="dropdown"><a
+            class="dropdown-toggle nav-link" href="javascript:void(0)" [routerLink]="['/','management','users']"
+            data-toggle=""><i class="la la-user-plus"></i><span>Quản
+                Lý Người Dùng</span></a>
+    </li> -->
+
+    <li class="dropdown nav-item" data-menu="dropdown">
+        <a class="dropdown-toggle nav-link" href="javascript:void(0)" data-toggle="dropdown">
+            <i class="la la-newspaper-o"> </i>
+            <span>Thống Kê Báo Cáo</span>
+        </a>
+        <!-- <ul class="dropdown-menu">
+            <li  data-menu="" class="nav navbar-nav" data-menu="dropdown">
+                <a class="dropdown-item" [routerLink]="['/','management','report-cultural-services']" data-toggle="">
+                    <i class="la la-hotel"></i><span>Thông Tin Quản Lý Dịch Vụ Văn Hóa</span>
+                </a>
+            </li>
+            <li class="nav navbar-nav" data-menu="dropdown"><a class="dropdown-toggle nav-link"
+                    href="javascript:void(0)" [routerLink]="['/','management','report-travel-services']"
+                    data-toggle="dropdown"><i class="la la-cloud"></i><span>Thông Tin Quản Lý Dịch Vụ Du Lịch</span></a>
+            </li>
+            <li class="nav navbar-nav" data-menu="dropdown"><a class="dropdown-toggle nav-link"
+                    href="javascript:void(0)" [routerLink]="['/','management','report-stay-information-manager']"
+                    data-toggle="dropdown"><i class="la la-cloud"></i><span>Thông Tin Quản Lý Lưu Trú</span></a>
+            </li>
+            <li class="nav navbar-nav" data-menu="dropdown"><a class="dropdown-toggle nav-link"
+                    href="javascript:void(0)" [routerLink]="['/','management','report-historical']"
+                    data-toggle="dropdown"><i class="la la-cloud"></i><span>Thông Tin Quản Lý Di Tích Lịch Sử</span></a>
+            </li>
+        </ul> -->
+    </li>
+    <li class=" nav-item">
+        <a class="nav-link" [routerLink]="['/','management','dashboard']">
+            <i class="la la-home"></i><span>Dashboard</span>
+        </a>
+    </li>
+
+</ul>
+<!-- END: Main Menu-->

@@ -1,0 +1,7 @@
+select,
+  option.selected{
+    width        : 100%;
+    overflow     : hidden !important;
+    white-space  : nowrap;
+    text-overflow: ellipsis;   
+  }

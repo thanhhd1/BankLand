@@ -1,0 +1,123 @@
+<div class="content-header row mb-1">
+  <div class="content-header-left col-md-6 col-12 mb-2">
+    <h3 class="content-header-title">Khách Sạn - Nhà Nghỉ - HomeStay</h3>
+    <div class="row breadcrumbs-top">
+      <div class="breadcrumb-wrapper col-12">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/']">Trang Chủ</a>
+          </li>
+          <li class="breadcrumb-item">Khách Sạn - Nhà Nghỉ - HomeStay
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="content-header-right col-md-6 col-12">
+  </div>
+</div>
+<div class="content-body">
+  <div class="row">
+    <div class="col-12">
+      <div class="card" [appActionCardButton]="'InternetFilter'">
+        <div class="card-header">
+          <h4 class="card-title">Bộ Lọc</h4>
+          <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+          <div class="heading-elements">
+            <ul class="list-inline mb-0">
+              <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+              <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-content show">
+          <div class="card-body card-dashboard">
+            <form name="form" class="form form-horizontal" (ngSubmit)="RefreshTable()" #f="ngForm" novalidate>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="col-md-12">Tên Kinh Doanh: </label>
+                    <div class="col-md-12 mx-auto">
+                      <input type="text" class="form-control" name="Name" [(ngModel)]="criteria.Name" #Name="ngModel" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="col-md-12">Loại Hình Đăng Ký: </label>
+                    <div class="col-md-12 mx-auto">
+                      <select class="form-control" name="CompanyType" #CompanyType="ngModel"
+                        [(ngModel)]="criteria.CompanyType" required>
+                        <option value="">--Chọn Mục--</option>
+                        <option *ngFor="let item of companyTypes" [value]="item.id">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="col-md-12">Địa Chỉ: </label>
+                    <div class="col-md-12 mx-auto">
+                      <input type="text" class="form-control" name="Address" [(ngModel)]="criteria.Address"
+                        #Address="ngModel" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="col-md-12">Số Điện Thoại: </label>
+                    <div class="col-md-12 mx-auto">
+                      <input type="text" class="form-control" name="PhoneNumber" [(ngModel)]="criteria.PhoneNumber"
+                        #PhoneNumber="ngModel" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="col-md-12">&nbsp;</label>
+                    <div class="col-md-12 mx-auto">
+                      <button type="submit" class="btn btn-outline-primary">
+                        <i class="ft-search"></i> Tìm Kiếm</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card" [appActionCardButton]="'Company'">
+        <div class="card-header">
+          <h4 class="card-title">Quản Lý đăng ký Khách Sạn, Nhà Nghỉ, Homestay</h4>
+          <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+          <div class="heading-elements">
+            <ul class="list-inline mb-0">
+              <li><a class="btn btn-outline-secondary btn-round btn-sm" (click)="add()"
+                  *ngIf="currentUser && (currentUser.Role === 'Administrator' || currentUser.Role === 'Employee_Travel_Services' )"><i
+                    class="ft-plus"></i> Thêm Mới </a></li>
+              <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+              <li><a (click)="RefreshTable()"><i class="ft-rotate-cw"></i></a></li>
+              <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-content collapse show">
+          <div class="card-body card-dashboard">
+            <table
+              class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle dataTable"
+              [isFilter]="false" [isLengthChange]="false" appPagingTable="" [aoColumns]="aoColumns"
+              [aoColumnDefs]="aoColumnDefs" [serverLink]="serverLink" [aaSorting]="aaSorting" [compRef]="compRef"
+              (tableEvent)="catchTable($event)" style="width: 100%">
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-company-info #addModal (onClose)="RefreshTable()"></app-company-info>
+<app-image-storage #imageStorageModal></app-image-storage>

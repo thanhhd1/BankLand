@@ -1,0 +1,123 @@
+<div class="content-wrapper">
+  <div class="content-header row mb-1">
+    <div class="content-header-left col-md-6 col-12 mb-2">
+      <h3 class="content-header-title">Hoá Đơn</h3>
+      <div class="row breadcrumbs-top">
+        <div class="breadcrumb-wrapper col-12">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
+            <li class="breadcrumb-item">Hoá Đơn</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-body">
+    <section class="card">
+      <div id="invoice-template" class="card-body">
+        <!-- Invoice Company Details -->
+        <div id="invoice-company-details" class="row">
+          <div class="col-md-6 col-sm-12 text-center text-md-left">
+            <div class="media">
+              <div class="media-body">
+                <ul class="ml-2 px-0 list-unstyled">
+                  <li class="text-bold-800">Tên Cơ Sở:<b>{{companyInfo.Name}}</b></li>
+                  <li>Địa Chỉ: <b>{{companyInfo.Address}}</b></li>
+                  <li>Email: <b>{{companyInfo.Email}}</b></li>
+                  <li>Điện Thoại: <b>{{companyInfo.PhoneNumber}}</b></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 text-center text-md-right">
+            <h2>HOÁ ĐƠN</h2>
+            <p class="">#{{ model.OrderDate | date:'MMddyyyyHHmmss'}}</p>
+            <ul class="px-0 list-unstyled">
+              <li>{{model.IsCompleted? 'Tổng Tiền Đã Thanh Toán' : 'Tổng Tiền Tạm Tính'}}</li>
+              <li class="lead text-bold-800">{{model.Total | number}} VNĐ</li>
+            </ul>
+          </div>
+        </div>
+        <!--/ Invoice Company Details -->
+
+        <ul class="nav nav-tabs nav-top-border no-hover-bg">
+          <li class="nav-item">
+            <a class="nav-link active" id="homeIcon-tab1" data-toggle="tab" href="#homeIcon1" aria-controls="homeIcon1"
+              aria-expanded="true">
+              <i class="la la-align-justify"></i>&nbsp;&nbsp;Thông Tin Phòng</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " id="profileIcon-tab1" data-toggle="tab" href="#profileIcon1"
+              aria-controls="profileIcon1" aria-expanded="false"><i class="la la-header"></i> &nbsp;&nbsp;Thông Tin
+              Khách Lưu
+              Trú</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="aboutIcon1-tab" data-toggle="tab" href="#aboutIcon1" aria-controls="aboutIcon1"
+              aria-expanded="false"><i class="la la-send-o"></i> &nbsp;&nbsp;Dịch Vụ Đã Sử Dụng</a>
+          </li>
+        </ul>
+        <div class="tab-content px-1 pt-1">
+          <div role="tabpanel" class="tab-pane active" id="homeIcon1" aria-labelledby="homeIcon-tab1"
+            aria-expanded="true">
+            <div id="invoice-items-details" class="pt-2">
+              <div class="row">
+                <app-order-room class="row col-sm-12" [model]="model" [isEdit]="isEdit"></app-order-room>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="profileIcon1" role="tabpanel" aria-labelledby="profileIcon-tab1"
+            aria-expanded="false">
+            <div id="invoice-items-details" class="pt-2">
+              <div class="row">
+                <app-order-customer class="row col-sm-12" [model]="model" [isEdit]="isEdit"></app-order-customer>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="aboutIcon1" role="tabpanel" aria-labelledby="aboutIcon1-tab" aria-expanded="false">
+            <div id="invoice-items-details" class="pt-2">
+              <div class="row">
+                <app-order-services class="row col-sm-12" [model]="model" [isEdit]="isEdit"> </app-order-services>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice Items Details -->
+        <div class="row">
+          <div class="col-md-7 col-sm-12 text-center text-md-left">
+
+          </div>
+          <div class="col-md-5 col-sm-12">
+            <p class="lead">Chi Phí</p>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td class="text-left pl-0"><b>Tổng Tiền</b></td>
+                    <td class="text-right">
+                      {{caculateTotalInvoice(model) | currency:' ':'symbol':'0.0-0'}} VNĐ
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice Footer -->
+        <div id="invoice-footer">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 text-right">
+              <button type="button" (click)="saveInfo()" *ngIf="!model.IsCompleted" class="btn btn-info btn-lg my-1"><i
+                  class="la la-paper-plane-o"></i> {{isEdit?'Thanh Toán' : 'Tạm Tính'}}</button>
+
+              <button type="button" (click)="cancel()" *ngIf="model.IsCompleted" class="btn btn-info btn-lg my-1"><i
+                  class="la la-close"></i> Quay Lại</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

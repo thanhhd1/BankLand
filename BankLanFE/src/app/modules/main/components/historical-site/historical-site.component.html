@@ -1,0 +1,123 @@
+<div class="content-header row mb-1">
+  <div class="content-header-left col-md-6 col-12 mb-2">
+    <h3 class="content-header-title">Di Tích Lịch Sử</h3>
+    <div class="row breadcrumbs-top">
+      <div class="breadcrumb-wrapper col-12">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/']">Trang Chủ</a>
+          </li>
+          <li class="breadcrumb-item">Di Tích Lịch Sử
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="content-header-right col-md-6 col-12">
+
+  </div>
+</div>
+<div class="content-body">
+  <div class="row">
+    <div class="col-12">
+      <div class="card" [appActionCardButton]="'HistoricalSiteFilter'">
+        <div class="card-header">
+          <h4 class="card-title">Bộ Lọc</h4>
+          <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+          <div class="heading-elements">
+            <ul class="list-inline mb-0">
+              <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+              <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-content show">
+          <div class="card-body card-dashboard">
+            <form name="form" class="form form-horizontal" (ngSubmit)="RefreshTable()" #f="ngForm" novalidate>
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="col-md-12">Xếp Hạng Di Tích: </label>
+                    <div class="col-md-12 mx-auto">
+                      <select class="form-control" name="Category" #Category="ngModel" [(ngModel)]="criteria.Category"
+                        required>
+                        <option value="">--Chọn Mục--</option>
+                        <option *ngFor="let cat of historicalSiteTypes" [value]="cat.id">{{cat.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="col-md-12">Tên Di Tích: </label>
+                    <div class="col-md-12 mx-auto">
+                      <input type="text" class="form-control" name="Name" [(ngModel)]="criteria.Name" #Name="ngModel" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="col-md-12">Ngày Ra Quyết Định: </label>
+                    <div class="col-md-12 mx-auto">
+                      <app-date-time-picker name="DecisionDate" [(ngModel)]="criteria.DecisionDate"
+                        #DecisionDate="ngModel" [hasTime]="false" readonly>
+                      </app-date-time-picker>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="col-md-12">Số QĐ Công Nhận: </label>
+                    <div class="col-md-12 mx-auto">
+                      <input type="text" class="form-control" name="OrderNumberRecognition"
+                        [(ngModel)]="criteria.OrderNumberRecognition" #OrderNumberRecognition="ngModel" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="col-md-12">&nbsp;</label>
+                    <div class="col-md-12 mx-auto">
+                      <button type="submit" class="btn btn-outline-primary">
+                        <i class="ft-search"></i> Tìm Kiếm</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card" [appActionCardButton]="'HistoricalSite'">
+        <div class="card-header">
+          <h4 class="card-title">Quản Lý Di Tích Lịch Sử </h4>
+          <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+          <div class="heading-elements">
+            <ul class="list-inline mb-0">
+              <li><a class="btn btn-outline-secondary btn-round btn-sm" (click)="add()"><i class="ft-plus"></i> Thêm
+                  mới</a></li>
+              <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+              <li><a (click)="RefreshTable()"><i class="ft-rotate-cw"></i></a></li>
+              <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-content collapse show">
+          <div class="card-body card-dashboard">
+            <table
+              class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle dataTable"
+              [isFilter]="false" [isLengthChange]="false" appPagingTable="" [aoColumns]="aoColumns"
+              [aoColumnDefs]="aoColumnDefs" [serverLink]="serverLink" [aaSorting]="aaSorting" [compRef]="compRef"
+              (tableEvent)="catchTable($event)" style="width: 100%">
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-historical-site-info #addModal (onClose)="RefreshTable()"></app-historical-site-info>
+<app-image-storage #imageStorageModal></app-image-storage>

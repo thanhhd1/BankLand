@@ -1,0 +1,7 @@
+.nav-vertical .nav-left.nav-tabs li.nav-item a.nav-link {
+    min-width: 10rem!important;
+    /* border-right: 1px solid #DDDDDD; */
+}
+.nav-vertical .nav-left.nav-tabs.nav-border-left li.nav-item a.nav-link {
+    color: #2196F3;
+}

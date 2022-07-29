@@ -1,0 +1,121 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Khách Hàng</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Name.valid }">
+                <label class="col-md-12 control-label">Họ Tên<span class="error-message">*</span>: </label>
+                <div class="col-md-12 mx-auto">
+                  <input type="text" class="form-control" name="Name" [(ngModel)]="model.Name" #Name="ngModel"
+                    required />
+                  <div *ngIf="f.submitted && Name.errors && Name.errors.required" class="error-message">Thông tin bắt
+                    buộc.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !BirthDate.valid }">
+                <label class="col-md-12 control-label">Ngày Sinh<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <app-date-time-picker name="BirthDate" [(ngModel)]="model.BirthDate" #BirthDate="ngModel"
+                    [hasTime]="false" required>
+                  </app-date-time-picker>
+                  <div *ngIf="f.submitted && BirthDate.errors && BirthDate.errors.required" class="error-message">Thông
+                    tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-md-12 control-label">Số Điện Thoại:<span class="error-message"
+                    style="font-size: 11px!important;
+                                                                                                margin-left: 5px;
+                                                                                                position: absolute;">*</span></label>
+                <div class="col-md-12 mx-auto">
+                  <input autocomplete="off" type="text" class="form-control" [textMask]="{mask: maskPhone}"
+                    name="Phone Number" [(ngModel)]="model.PhoneNumber" #PhoneNumber="ngModel"
+                    [required]="(model.PhoneNumber?null:true)" />
+                  <div *ngIf="f.submitted && PhoneNumber.errors && PhoneNumber.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                  <div
+                    *ngIf="f.submitted && PhoneNumber.errors && !PhoneNumber.errors.required && PhoneNumber.errors.pattern"
+                    class="error-message">Giá trị không hợp lệ.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !SocialNumber.valid }">
+                <label class="col-md-12 control-label">Số CMND<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <input autocomplete="off" type="text" class="form-control" name="SocialNumber"
+                    [textMask]="{mask: maskCMND}" [(ngModel)]="model.SocialNumber" #SocialNumber="ngModel" required />
+                  <div *ngIf="f.submitted && SocialNumber.errors && SocialNumber.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !ProviderDate.valid }">
+                <label class="col-md-12 control-label">Ngày Cấp CMND<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <app-date-time-picker name="ProviderDate" [(ngModel)]="model.ProviderDate" #ProviderDate="ngModel"
+                    [hasTime]="false" required>
+                  </app-date-time-picker>
+                  <div *ngIf="f.submitted && ProviderDate.errors && ProviderDate.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !PlaceProvider.valid }">
+                <label class="col-md-12 control-label">Đơn Vị Cấp:<span class="error-message">*</span></label>
+                <div class="col-md-12 mx-auto">
+                  <input autocomplete="off" type="text" class="form-control" name="PlaceProvider"
+                    [(ngModel)]="model.PlaceProvider" #PlaceProvider="ngModel" required />
+                  <div *ngIf="f.submitted && PlaceProvider.errors && PlaceProvider.errors.required"
+                    class="error-message">Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mx-auto">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Address.valid }">
+                <label class="col-md-12 control-label">Địa Chỉ<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <textarea autocomplete="off" type="text" class="form-control" name="Address"
+                    [(ngModel)]="model.Address" #Address="ngModel" required></textarea>
+                  <div *ngIf="f.submitted && Address.errors && Address.errors.required" class="error-message">Thông tin
+                    bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions text-right">
+            <p class="text-left error-message" style="font-size: 11px!important;">* Thông tin bắt buộc</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Lưu</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Hủy</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<section class="flexbox-container m-t-40 flexboxcustom">
+    <div class="login-swap">
+        <a class="login-btn" [routerLink]="['/','auth','sign-up']"> ĐĂNG KÝ </a>
+        <button class="sign-up-btn">ĐĂNG NHẬP</button>
+    </div>
+
+
+    <div class="row rapper-row items-center">
+        <div class="col col-md-7 col-12">
+            <div class="logo">
+                <div style="padding-bottom: 25.2%"></div>
+                <div class="absolute-full">
+                    <img class="img-content" src="../../../../../assets/images/backgrounds/logo.png"
+                        style="object-fit: cover; object-position: 50% 50%;" />
+                </div>
+                <div class="absolute-full"></div>
+            </div>
+        </div>
+
+        <div class="col col-md-5 col-12 m-t-50">
+            <div class="wrapper-icon">
+                <div class="q-avatar bg-primary text-white q-chip--colored" style="font-size: 100px;">
+                    <div class="q-avatar__content row flex-center overflow-hidden" style="font-size: 52px;">
+                        <i class="q-icon notranslate material-icons" style="font-size: 52px;" aria-hidden="true"
+                            role="presentation">person</i>
+                    </div>
+                </div>
+            </div>
+
+            <form (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+                <div class="form-horizontal-custom">
+
+                    <fieldset *ngIf="f.submitted && isError" class="form-group position-relative">
+                        <div  class=" alert alert-danger border-0 mb-2" role="alert">
+                            {{errorMessage}}
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group position-relative has-icon-left">
+                        <input type="text" class="form-control" placeholder="Nhập Email" name="Username"
+                            #Username="ngModel" [(ngModel)]="model.Email" required>
+                        <div class="form-control-position">
+                            <!-- <i class="ft-user"></i> -->
+                            <i aria-hidden="true" class="q-icon notranslate material-icons icon-custom" role="email">email</i>
+                        </div>
+                    </fieldset>
+
+                    <fieldset *ngIf="f.submitted && Username.errors && Username.errors.required" class="form-group position-relative has-icon-left">
+                        <div class="error-message">
+                            Vui Lòng Nhập Email.
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group position-relative has-icon-left">
+                        <input type="password" class="form-control" placeholder="Nhập Mật Khẩu" name="Password"
+                            #Password="ngModel" [(ngModel)]="model.Password" required>
+                        <div class="form-control-position">
+                            <!-- <i class="la la-key"></i> -->
+                            <i class="q-icon notranslate material-icons icon-custom" aria-hidden="true" role="lock">lock</i>
+                        </div>
+                    </fieldset>
+                    <fieldset *ngIf="f.submitted && Password.errors && Password.errors.required" class="form-group position-relative has-icon-left">
+                        <div class="error-message">
+                            Vui Lòng Nhập Mật Khẩu.
+                        </div>
+                    </fieldset>
+                    <div class="form-group row justify-content-end">
+                        <div class="col-sm-6 col-12 text-center text-sm-left pr-0">
+                            <fieldset>
+                                <input type="checkbox" id="remember-me" class="chk-remember form-check-input-custom" name="IsRemember"
+                                    [(ngModel)]="model.IsRemember">
+                                <label for="remember-me" style="padding-left: 20px;"> Remember Me</label>
+                            </fieldset>
+                        </div>
+                        <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a
+                                [routerLink]="['/','auth','forgot-password']" class="card-link">Quên Mật
+                                Khẩu?</a></div>
+                    </div>
+
+
+                </div>
+
+
+                <button type="submit" class="btn btn-outline-danger custom-btn" [disabled]="Submitting"><i
+                        class="ft-unlock"></i>
+                    {{Submitting?'Vui lòng chờ...':'LOGIN'}}</button>
+
+            </form>
+        </div>
+    </div>
+
+
+</section>

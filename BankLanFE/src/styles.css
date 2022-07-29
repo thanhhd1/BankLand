@@ -1,0 +1,101 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~material-design-icons/iconfont/material-icons.css';
+.m-t-50{
+    margin-top:50px;
+}
+.m-t-40{
+    margin-top:40px;
+}
+.m-b-50{
+    margin-bottom: 50px;
+}
+.m-t-70{
+    margin-top: 70px;
+}
+.m-l-5{
+    margin-left: 5px;
+}
+.width-30{
+    width: 30px;
+}
+.width-40{
+    width: 40px;
+}
+
+.error-message{
+	color:red;
+} 
+.no-padding{
+    padding:0;
+}
+.m-10{
+    margin:10px;
+}
+
+.fc-description{
+    color:#FFF;
+}
+
+.fc-timeline-event {
+    position: absolute;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 2px;
+}
+.multiselect-dropdown .selected-item{
+    margin-top:2px;
+}
+
+.navbar-container .search-input.open .input {
+    min-width: 200px;
+} 
+ 
+ 
+
+.tt-menu { /* UPDATE: newer versions use tt-menu instead of tt-dropdown-menu */
+    width: 250px;
+    margin-top: 12px;
+    padding: 8px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    max-height: 450px;
+    overflow-x: auto;
+}
+.p-2{
+    padding:2px !important;
+}
+
+.tt-suggestion {
+    padding: 5px 0px;
+    font-size: 12px;
+    line-height: 24px;
+    cursor: pointer;
+    border-bottom: 0.5px solid #f0f0f0;
+}
+
+.tt-suggestion:hover {
+    color: #f0f0f0;
+    background-color: #0097cf;
+}
+
+.tt-suggestion p {
+    margin: 0;
+}
+
+.no-padding{
+    padding:0
+}
+
+.btn-group.show .dropdown-menu {
+    margin: 0px;
+}
+.f-9{
+    font-size:9px;
+}
+
+.m-t-5{
+    margin-top:5px !important;
+}

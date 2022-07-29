@@ -1,0 +1,45 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Phòng Karaoke</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !RoomName.valid }">
+                <label class="col-md-12">Tên Phòng<span class="error-message">*</span>: </label>
+                <div class="col-md-12 mx-auto">
+                  <input type="text" class="form-control" name="RoomName" [(ngModel)]="model.RoomName"
+                    #RoomName="ngModel" required />
+                  <div *ngIf="f.submitted && RoomName.errors && RoomName.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !AreaRoom.valid }">
+                <label class="col-md-12">Diện Tích Phòng<span class="error-message">*</span>: </label>
+                <div class="col-md-12 mx-auto">
+                  <input type="number" min="0.1" class="form-control" name="AreaRoom" [(ngModel)]="model.AreaRoom"
+                    #AreaRoom="ngModel" required />
+                  <div *ngIf="f.submitted && AreaRoom.errors && AreaRoom.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Save</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

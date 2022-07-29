@@ -1,0 +1,47 @@
+<div class="content-wrapper">
+  <div class="content-header row mb-1">
+      <div class="content-header-left col-md-6 col-12 mb-2">
+          <h3 class="content-header-title">Quản Lý Danh Sách Phòng</h3>
+          <div class="row breadcrumbs-top">
+              <div class="breadcrumb-wrapper col-12">
+                  <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a [routerLink]="['/','management','dashboard']">Trang Chủ</a>
+                      </li>
+                      <li class="breadcrumb-item active">Danh Sách Phòng
+                      </li>
+                  </ol>
+              </div>
+          </div>
+      </div>
+      <div class="content-header-right col-md-6 col-12">
+          <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
+              <button class="btn btn-info round box-shadow-2 px-2"  type="button" (click)="addNewRoom()"><i class="la la-plus-square icon-left"></i> Tạo phòng</button>
+          </div>
+      </div>
+  </div>
+  <div class="content-body">
+      <div id="doctors-list">
+
+          <div class="row match-height">
+              <div class=" col-xl-3 col-lg-4 col-md-6" *ngFor="let item of model; let i = index">
+                  <div class="card"> 
+                      <div class="card-body">
+                          <h6 class="card-title font-large-1 mb-0 text-center">{{item.Name}}</h6>
+                          <p class="card-text card font-medium-1 text-center mb-0"> Loại Phòng: {{item.RoomType.Name}}</p>
+                          <p class="font-small-3 mb-2 text-center">Giá: {{item.Price}}</p>
+                          <div class="text-center round " [ngClass]="{ 'badge badge-danger': (item.RoomStatus === 1), 'badge badge-info': (item.RoomStatus === 0), 'badge badge-warning': (item.RoomStatus === 2) }"><i class="ft-briefcase"></i> {{item.RoomStatus === 0 ? 'Trống' : item.RoomStatus === 1 ? 'Sử Dụng' : 'Sửa Chữa'}} </div>
+
+                      </div>
+                      <div class="card-footer mx-auto">
+                          <a *ngIf="item.RoomStatus === 0" (click)="add(item.ID)" class="btn btn-outline-info btn-sm round">Đặt Phòng</a>
+                          <a *ngIf="item.RoomStatus === 1" (click)="edit(item.ID)" class="btn btn-outline-danger btn-sm round">Trả Phòng</a>
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+</div>
+
+<app-room-info #addModal (onClose)="refreshRooms()"></app-room-info>

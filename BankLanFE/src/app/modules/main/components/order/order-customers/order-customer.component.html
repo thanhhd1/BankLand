@@ -1,0 +1,44 @@
+<div class="col-sm-12 mb-2 text-right">
+  <button type="button" *ngIf="!model.IsCompleted" class="btn btn-outline-primary btn-sm" (click)="addNewCustomer()"><i
+      class="la la-plus"></i> Thêm Mới Khách
+    Hàng </button>
+</div>
+<div class="table-responsive col-sm-12">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center">#</th>
+        <th class="text-center">Tên </th>
+        <th class="text-center">Ngày Sinh </th>
+        <th class="text-center">Số CMND</th>
+        <th class="text-center">Ngày Cấp</th>
+        <th class="text-center">Nơi Cấp</th>
+        <th class="text-center">Địa Chỉ</th>
+        <th *ngIf="!model.IsCompleted"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orderCust of model.OrderCustomers;let i =index">
+        <td scope="row">{{i+1}}</td>
+        <td> {{orderCust.Customer.Name}}</td>
+        <td class="text-center">{{orderCust.Customer.BirthDate | date :'dd/MM/yyyy'}}</td>
+        <td class="text-center">{{orderCust.Customer.SocialNumber}}</td>
+        <td class="text-center">{{orderCust.Customer.ProviderDate | date :'dd/MM/yyyy'}}</td>
+        <td class="text-left">{{orderCust.Customer.PlaceProvider}}</td>
+        <td class="text-left">{{orderCust.Customer.Address}}</td>
+
+        <td *ngIf="!model.IsCompleted" class="text-center">
+          <button *ngIf="!model.IsCompleted" type=" button" class="btn btn-outline-danger btn-sm"
+            (click)="removeCust(i)"><i class="la-la-close"></i>
+            Xoá</button>
+        </td>
+      </tr>
+      <tr *ngIf="model && model.OrderCustomers.length ==0">
+        <td colspan="8" class="text-center">
+          <p>Chưa có thông tin khách hàng đăng ký </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-customer-list #custListModal (onClosed)="selectCust($event)"></app-customer-list>

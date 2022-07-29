@@ -1,0 +1,193 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog modal-xl">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Thông Tin Đăng Ký Internet</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-md-12"></label>
+                <div class="col-md-12 mx-auto">
+                  <div class="skin skin-flat mt-1">
+                    <fieldset>
+                      <input class="icheckbox_flat-green checked" type="checkbox"  [(ngModel)]="model.IsOrganization" name="IsOrganization">
+                      <label for="IsOrganization">&nbsp; Là Tổ Chức</label>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" *ngIf="model.IsOrganization">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !OrganizationID.valid }">
+                <label class="col-md-12 control-label">Tên Tổ Chức:</label>
+                <div class="col-md-12 mx-auto">
+                  <select class="form-control" name="OrganizationID" [(ngModel)]="model.OrganizationID"
+                    #OrganizationID="ngModel" required="model.IsOrganization">
+                    <option value="">--Chọn Tên Tổ Chức--</option>
+                    <option [value]="item.ID" *ngFor="let item of organizations">
+                      {{item.Name}}</option>
+                  </select>
+                  <div *ngIf="f.submitted && OrganizationID.errors && OrganizationID.errors.required"
+                    class="error-message">Thông tin
+                    bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6" *ngIf="!model.IsOrganization">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !RepresentativeID.valid }">
+                <label class="col-md-12 control-label">Người Đăng Ký:</label>
+                <div class="col-md-12 mx-auto">
+                  <select class="form-control" name="RepresentativeID" [(ngModel)]="model.RepresentativeID"
+                    #RepresentativeID="ngModel" required="!model.IsOrganization">
+                    <option value="null">-- Người Đăng Ký --</option>
+                    <option [value]="item.ID" *ngFor="let item of representatives">
+                      {{item.Name}}</option>
+                  </select>
+                  <div *ngIf="f.submitted && RepresentativeID.errors && RepresentativeID.errors.required"
+                    class="error-message">Thông tin
+                    bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !TotalComputer.valid }">
+                <label class="col-md-12 control-label">Tổng Máy Tính<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <input type="number" min="0" step="1" class="form-control" name="TotalComputer"
+                    [(ngModel)]="model.TotalComputer" #TotalComputer="ngModel" required />
+                  <div *ngIf="f.submitted && TotalComputer.errors && TotalComputer.errors.required"
+                    class="error-message">Thông tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !AreaRoom.valid }">
+                <label class="col-md-12 control-label">Diện Tích Phòng<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <input type="number" min="0" class="form-control" name="AreaRoom" [(ngModel)]="model.AreaRoom"
+                    #AreaRoom="ngModel" required />
+                  <div *ngIf="f.submitted && AreaRoom.errors && AreaRoom.errors.required" class="error-message">Thông
+                    tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Address.valid }">
+                <label class="col-md-12 control-label">Địa Chỉ<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <textarea type="text" class="form-control" name="Address" [(ngModel)]="model.Address"
+                    #Address="ngModel" required></textarea>
+                  <div *ngIf="f.submitted && Address.errors && Address.errors.required" class="error-message">Thông tin
+                    bắt buộc</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-12 mb-2 text-right">
+            <button type="button" class="btn btn-outline-primary btn-sm" (click)="addLicenseType()"><i
+                class="la la-plus"></i> Thêm Giấy Phép Đăng Ký
+            </button>
+          </div>
+
+          <div class="table-responsive col-sm-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="f-11">
+                  <th>#</th>
+                  <th class="text-center">Loại Giấy Phép</th>
+                  <th class="text-center">Số Giấy Phép</th>
+                  <th class="text-center">Ngày Cấp Giấy Phép</th>
+                  <th class="text-center">Cơ Quan Cấp</th>
+                  <th class="text-center">Là Giấy Phép Chính</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let source of model.InternetLicenseType; let i=index">
+                  <td class="f-12 text-center form-group">
+                    {{i+1}}
+                  </td>
+
+                  <td class="f-12">
+                    <label class="label">
+                      {{getLicenseTypeName(source.LicenseTypeID)}}
+                    </label>
+                  </td>
+
+                  <td class="f-12 text-center">
+                    <label class="badge badge-success">
+                      {{source.LicenseNumber}}
+                    </label>
+                  </td>
+
+                  <td class="f-12 text-center">
+                    <label class="label">
+                      {{source.LicenseDate | date : 'dd/MM/yyyy'}}
+                    </label>
+                  </td>
+                  <td class="f-12 text-center">
+                    <label class="badge badge-success">
+                      {{source.ProviderBy}}
+                    </label>
+                  </td>
+                  <td class="f-12 text-center">
+                    <label class="label" *ngIf="source.IsPrimaryLicense">
+                      <fieldset>
+                        <input disabled="disabled" appICheck checked="checked" class="icheckbox_flat-green checked"
+                          type="checkbox" name="IsPrimaryLicense">
+                      </fieldset>
+                    </label>
+                    <label class="label" *ngIf="!source.IsPrimaryLicense">
+                      <fieldset>
+                        <input disabled="disabled" appICheck class="icheckbox_flat-green" type="checkbox"
+                          name="IsPrimaryLicense">
+                      </fieldset>
+                    </label>
+                  </td>
+                  <td class="f-12">
+                    <div class="col-sm-12 text-center room-style">
+                      <button *ngIf="isEdit" type="button" class="btn btn-outline-info btn-sm"
+                        (click)="editLicenseType(model.ID, source.ID)">
+                        Sửa
+                      </button>&nbsp;&nbsp;
+                      <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeLicenseType(i)">
+                        Xóa
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr *ngIf="model.InternetLicenseType.length  == 0">
+                  <td colspan="7" class="text-center">
+                    <h5 class="mt-2">Chưa có loại giấy phép nào được đăng ký</h5>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Lưu</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Hủy</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-internet-license-type #addModal (onClosed)="onCloseLicenseType($event)"></app-internet-license-type>

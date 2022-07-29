@@ -1,0 +1,56 @@
+<div
+  bsModal
+  #childModal="bs-modal"
+  [config]="{ backdrop: 'static', keyboard: false }"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Danh sách {{fileType==0?'Hình Ảnh':'Hồ Sơ'}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-2" *ngIf="!isNotShowAction">
+          <div class="col-md-12 text-right">
+            <button  
+              class="btn btn-primary btn-sm"
+              type="button"
+              (click)="add()"
+            >
+              <i class="la la-plus"></i> Thêm {{fileType==0?'Hình Ảnh':'Hồ Sơ'}} 
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <table
+              class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle dataTable"
+              [isFilter]="false"
+              [isLengthChange]="false"
+              appPagingTable=""
+              [aoColumns]="aoColumns"
+              [aoColumnDefs]="aoColumnDefs"
+              [serverLink]="serverLink"
+              [aaSorting]="aaSorting"
+              [compRef]="compRef"
+              (tableEvent)="catchTable($event)"
+              style="width: 100%"
+            ></table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-secondary btn-min-width box-shadow-4"
+          (click)="cancel()"
+        >
+          Hủy
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-image-storage-info #addModal (onClose)="RefreshTable()"></app-image-storage-info>

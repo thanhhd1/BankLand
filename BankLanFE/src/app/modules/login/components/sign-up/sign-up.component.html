@@ -1,0 +1,135 @@
+<section class="flexbox-container m-t-40 m-b-50 flexboxcustom">
+  <div class="login-swap">
+    <a class="login-btn" [routerLink]="['/','auth','sign-up']"> ĐĂNG KÝ </a>
+    <a class="sign-up-btn" [routerLink]="['/','auth','sign-in']">ĐĂNG NHẬP</a>
+  </div>
+  <div class="row rapper-row items-center">
+    <div class="col col-md-7 col-12">
+      <div class="logo">
+        <div style="padding-bottom: 25.2%"></div>
+        <div class="absolute-full"><img class="img-content" src="../../../../../assets/images/backgrounds/logo.png"
+            style="object-fit: cover; object-position: 50% 50%;" /></div>
+        <div class="absolute-full"></div>
+      </div>
+    </div>
+
+    <div class="col col-md-5 col-12">
+      <div class="wrapper-icon">
+        <div class="q-avatar bg-primary text-white q-chip--colored"
+          style="font-size: 100px;">
+          <div class="q-avatar__content row flex-center overflow-hidden" style="font-size: 52px;">
+            <i class="q-icon notranslate material-icons" style="font-size: 52px;" aria-hidden="true" role="presentation">person</i>
+            </div>
+        </div>
+      </div>
+      <!-- <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
+        <div class="card-content">
+          <div class="card-body"> -->
+            <form (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+
+
+              <div class="form-horizontal-custom">
+
+              <fieldset *ngIf="f.submitted && isError" class="form-group position-relative">
+                <div class=" alert alert-danger border-0 mb-2" role="alert">
+                  Không thể tạo account. Vui lòng thử lại.
+                </div>
+              </fieldset>
+              <fieldset class="form-group position-relative has-icon-left">
+                <input autocomplete="false" type="text" class="form-control" placeholder="Email" name="Username"
+                  #Username="ngModel" [(ngModel)]="model.Email" required>
+                <div class="form-control-position">
+                  <i aria-hidden="true" class="q-icon notranslate material-icons icon-custom" role="email">email</i>
+                </div>
+              </fieldset>
+
+              <fieldset *ngIf="f.submitted && Username.errors && Username.errors.required" class="form-group position-relative has-icon-left">
+                <div  class="error-message">
+                  Vui lòng nhập email.
+                </div>
+              </fieldset>
+
+
+              <fieldset class="form-group position-relative has-icon-left">
+                <input autocomplete="false" type="password" class="form-control" placeholder="Mật Khẩu"
+                  name="Password" #Password="ngModel" [(ngModel)]="model.Password" minlength="8" required>
+                <div class="form-control-position">
+                  <i class="q-icon notranslate material-icons icon-custom" aria-hidden="true" role="lock">lock</i>
+                </div>
+              </fieldset>
+
+              <fieldset *ngIf="f.submitted && Password.errors && Password.errors.required" class="form-group position-relative has-icon-left">
+                <div class="error-message">
+                  Vui lòng nhập Password.
+                </div>
+              </fieldset>
+
+              <fieldset *ngIf="f.submitted && Password.errors && !Password.errors.required && Password.errors.minlength" class="form-group position-relative has-icon-left">
+                <div class="error-message">
+                  Mật khẩu phải có nhiều hơn 8 ký tự.
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group position-relative has-icon-left">
+                <input autocomplete="false" type="password" class="form-control" placeholder="Nhập Lại Mật Khẩu"
+                  name="Password" #Password="ngModel" [(ngModel)]="model.Password" minlength="8" required>
+                <div class="form-control-position">
+                  <i class="q-icon notranslate material-icons icon-custom" aria-hidden="true" role="lock">lock</i>
+                </div>
+              </fieldset>
+
+              <fieldset *ngIf="f.submitted && Password.errors && Password.errors.required" class="form-group position-relative has-icon-left">
+                <div class="error-message">
+                  Vui lòng nhập Password.
+                </div>
+              </fieldset>
+
+              <fieldset  *ngIf="f.submitted && Password.errors && !Password.errors.required && Password.errors.minlength" class="form-group position-relative has-icon-left">
+                <div class="error-message">
+                  Mật khẩu phải có nhiều hơn 8 ký tự.
+                </div>
+              </fieldset>
+
+
+              <fieldset class="form-group position-relative has-icon-left">
+                <input autocomplete="false" type="text" class="form-control" placeholder="Họ Tên" name="Name"
+                  #Name="ngModel" [(ngModel)]="model.Name" required>
+                <div class="form-control-position">
+                  <i class="q-icon notranslate material-icons icon-custom" aria-hidden="true" role="presentation">person</i>
+                </div>
+              </fieldset>
+
+              <fieldset *ngIf="f.submitted && Name.errors && Name.errors.required" class="form-group position-relative has-icon-left">
+                <div class="error-message">
+                  Vui lòng nhập Tên đầy đủ.
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group position-relative has-icon-left">
+                <input autocomplete="false" type="text" class="form-control" placeholder="Số Điện Thoại" name="Name"
+                  #Name="ngModel" [(ngModel)]="model.Name" required>
+                <div class="form-control-position">
+                  <i class="q-icon notranslate material-icons icon-custom" aria-hidden="true" role="phone">phone</i>
+                
+                </div>
+              </fieldset>
+
+              <fieldset *ngIf="f.submitted && Name.errors && Name.errors.required" class="form-group position-relative has-icon-left">
+                <div class="error-message">
+                  Vui lòng nhập Số Điện Thoại.
+                </div>
+              </fieldset>
+          
+            </div>
+
+              <button type="submit" class="btn btn-outline-danger custom-btn"  [disabled]="Submitting">
+                {{Submitting?'Please wait...':'REGISTER'}}
+              </button>
+
+            </form>
+
+
+    </div>
+  </div>
+
+</section>

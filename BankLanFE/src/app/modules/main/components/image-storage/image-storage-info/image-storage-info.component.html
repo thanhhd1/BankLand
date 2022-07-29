@@ -1,0 +1,92 @@
+<div
+  bsModal
+  #childModal="bs-modal"
+  [config]="{ backdrop: 'static', keyboard: false }"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+>
+  <div class="modal-dialog">
+    <!-- /.modal-content -->
+    <form
+      name="form"
+      class="form form-horizontal"
+      (ngSubmit)="f.form.valid && save()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">
+            {{ isEdit ? 'Chỉnh Sửa' : 'Thêm Mới' }}
+            {{ type == 0 ? 'Hình Ảnh' : 'Hồ Sơ' }}
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="row  text-center">
+            <div
+              class="form-group row col-md-12 clearfix"
+              [ngClass]="{ 'has-error': f.submitted && !Path.valid }"
+            >
+              <label class="col-md-12 text-left"
+                >Chọn {{ type == 0 ? 'hình ảnh' : 'hồ sơ' }}
+                <span class="error-message">*</span>:
+              </label>
+              <div class="col-md-12" *ngIf="type == 0">
+                <img
+                  width="100"
+                  height="100"
+                  alt="Logo"
+                  src="{{ model.Path ? model.Path : defaultImage }}"
+                  class="rounded"
+                />
+              </div>
+              <div
+                class="col-md-12"
+                *ngIf="type == 1 && model.Path && model.Path.length > 0"
+              >
+                <a href="{{ model.Path }}" target="blank"> Hồ Sơ </a>
+              </div>
+
+              <div class="col-md-12 m-t-5">
+                <input type="hidden"  name="Path" #Path="ngModel" [(ngModel)]="model.Path" required/>
+                <a style="position: relative;" class="btn btn-outline-primary mt-1">
+
+                  <input type="file" appFileUpload="" 
+                    [ModelID]="model.ID" [typeUpload]="getImageTypeFolder(model.Type)" [fileType]="type"
+                    [link]="'/api/Utility/UploadFile'" (onStart)="startUploadImage($event)"
+                    (onCallback)="callBackUploadImage($event)"
+                    (onErrorCallback)="errorCallback($event)"
+                    style="opacity: 0;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" />
+                  Upload File
+                </a>
+              </div>
+              <div
+                *ngIf="f.submitted && Path.errors && Path.errors.required"
+                class="col-md-12 error-message text-left"
+              >
+                Thông tin bắt buộc.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting"
+          >
+            Lưu
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()"
+          >
+            Hủy
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

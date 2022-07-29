@@ -1,0 +1,54 @@
+<div class="col-sm-12 mb-2 text-right">
+  <button type="button" *ngIf="!model.IsCompleted" class="btn btn-outline-primary btn-sm" (click)="add()"><i
+      class="la la-plus"></i> Thêm Dịch
+    Vụ </button>
+</div>
+<div class="table-responsive col-sm-12">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Tên Dịch Vụ</th>
+        <th>Giá</th>
+        <th>Đơn Vị Tính</th>
+        <th>Số Lượng</th>
+        <th>Thành Tiền</th>
+        <th *ngIf="!model.IsCompleted"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orderService of model.OrderMenuDetails;let i =index">
+        <td scope="row">{{i+1}}</td>
+        <td>
+          <label> {{orderService.MenuName}}</label>
+        </td>
+        <td class="text-right"><label>
+            {{orderService.Price | currency:' ':'symbol':'4.0-2'}} VNĐ
+          </label></td>
+        <td class="text-right"><label>{{orderService.UnitName}}</label></td>
+        <td class="text-right">
+          <label> {{orderService.Quantity}}</label>
+        </td>
+        <td class="text-right">
+          <label>
+            {{orderService.ThanhTien | currency:' ':'symbol':'4.0-2'}} VNĐ
+          </label></td>
+        <td class="text-right" *ngIf="!model.IsCompleted">
+            <button *ngIf="isEdit && !model.IsCompleted" type="button" class="btn btn-outline-info btn-sm"
+            (click)="edit(orderService.ID)">
+            Sửa
+          </button>&nbsp;&nbsp;
+          <button type="button" *ngIf="!model.IsCompleted" class="btn btn-outline-danger btn-sm"
+            (click)="removeService(i)"><i class="la-la-close"></i>
+            Xoá</button>
+          </td>
+      </tr>
+      <tr *ngIf="model && model.OrderMenuDetails.length ==0">
+        <td colspan="7" class="text-center">
+          <h5 class="mt-2">Nhấn Thêm Dịch Vụ để chọn sử dụng các dịch vụ bổ sung</h5>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-order-service-detail #addModal (onClosed)="selectService($event)"></app-order-service-detail>

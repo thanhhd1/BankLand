@@ -1,0 +1,120 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog modal-xl">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Di Tích Lịch Sử</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Name.valid }">
+                <label class="col-md-12">Tên Di Tích <span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <input type="tex" class="form-control" name="Name" [(ngModel)]="model.Name" #Name="ngModel"
+                    required />
+                  <div *ngIf="f.submitted && Name.errors && Name.errors.required" class="error-message">
+                    Thông tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Category.valid }">
+                <label class="col-md-12">Xếp Loại Di Tích<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <select type="text" class="form-control" name="Category" [(ngModel)]="model.Category"
+                    #Category="ngModel" required>
+                    <option [value]="item.id" *ngFor="let item of historicalSiteTypes">{{item.name}}</option>
+                  </select>
+                  <div *ngIf="f.submitted &&Category.errors && Category.errors.required" class="error-message">Thông tin
+                    bắt buộc</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !DecisionDate.valid }">
+                <label class="col-md-12">Ngày Ra Quyết Định<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <app-date-time-picker name="DecisionDate" [(ngModel)]="model.DecisionDate" #DecisionDate="ngModel"
+                    [hasTime]="false" required>
+                  </app-date-time-picker>
+                  <div *ngIf="f.submitted && DecisionDate.errors && DecisionDate.errors.required" class="error-message">
+                    Thông tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !OrderNumberRecognition.valid }">
+                <label class="col-md-12">Số QĐ Công Nhận<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <input type="text" class="form-control" name="OrderNumberRecognition"
+                    [(ngModel)]="model.OrderNumberRecognition" #OrderNumberRecognition="ngModel" required />
+                  <div *ngIf="f.submitted && OrderNumberRecognition.errors && OrderNumberRecognition.errors.required"
+                    class="error-message">Thông tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !DecisionBy.valid }">
+                <label class="col-md-12">Cấp Thẩm Quyền Ra Quyết Định <span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <input type="tex" class="form-control" name="DecisionBy" [(ngModel)]="model.DecisionBy"
+                    #DecisionBy="ngModel" required />
+                  <div *ngIf="f.submitted && DecisionBy.errors && DecisionBy.errors.required" class="error-message">
+                    Thông tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Address.valid }">
+                <label class="col-md-12">Địa Chỉ<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <textarea rows="3" class="form-control" name="Address" [(ngModel)]="model.Address" #Address="ngModel"
+                    required>
+                  </textarea>
+
+                  <div *ngIf="f.submitted && Address.errors && Address.errors.required" class="error-message">
+                    Thông tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Profile.valid }">
+                <label class="col-md-12">Thông Tin Di Tích<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <!-- <textarea rows="5" class="form-control" name="Profile" [(ngModel)]="model.Profile" #Profile="ngModel"
+                    required>
+                  </textarea> -->
+
+                  <textarea id="summernote" [(ngModel)]="model.Profile" name="Profile" #Profile="ngModel"></textarea>
+                  <div *ngIf="f.submitted && Profile.errors && Profile.errors.required" class="error-message">Thông tin
+                    bắt buộc</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Lưu</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Hủy</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

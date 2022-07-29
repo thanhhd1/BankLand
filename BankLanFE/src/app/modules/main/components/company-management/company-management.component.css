@@ -1,0 +1,26 @@
+#patient-profile .doctor-img {
+  width: 35px;
+}
+
+#patient-profile .patient-img {
+  width: 75px;
+}
+
+#patient-profile .patient-info-heading {
+  font-weight: 900;
+  display: inline-block;
+  width: 140px;
+}
+
+html body .content .content-wrapper {
+  padding: 1.2rem !important;
+}
+
+.formatted {
+  white-space: pre-wrap;
+}
+
+.card-custom {
+  min-height: 206px;
+  height: auto;
+}

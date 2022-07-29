@@ -1,0 +1,97 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog modal-xl">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Dịch Vụ Phát Sinh</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !MenuID.valid }">
+                <label class="col-md-12">Chọn Dịch Vụ<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <select class="form-control" name="MenuID" [(ngModel)]="model.MenuID" #MenuID="ngModel"
+                    (change)="onChangeSelect()" required>
+                    <option value="null">--Chọn Chọn Dịch Vụ--</option>
+                    <option [value]="item.ID" *ngFor="let item of menus">
+                      {{item.Name}}</option>
+                  </select>
+                  <div *ngIf="f.submitted && MenuID.errors && MenuID.errors.required" class="error-message">Thông tin
+                    bắt buộc</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="col-md-12">Tên Dịch Vụ<span class="error-message">*</span>: </label>
+                <div class="col-md-12">
+                  <label class="form-control">
+                    {{model.MenuName ? model.MenuName : ''}}
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group"  >
+                <label class="col-md-12">Giá</label>
+                <div class="col-md-12">
+                  <label class="form-control text-right">
+                    {{model.Price | number}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group" >
+                <label class="col-md-12">Tên Đơn Vị Tính: </label>
+                <div class="col-md-12">
+                  <label class="form-control">
+                    {{model.UnitName ? model.UnitName : ''}}
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Quantity.valid }">
+                <label class="col-md-12">Số Lượng<span class="error-message">*</span>:</label>
+                <div class="col-md-12">
+                  <input type="number" class="form-control" (change)="quantityChange()" name="Quantity"
+                    [(ngModel)]="model.Quantity" #Quantity="ngModel" required />
+                  <div *ngIf="f.submitted && Quantity.errors && Quantity.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group"  >
+                <label class="col-md-12">Thành Tiền </label>
+                <div class="col-md-12"> 
+                  <label class="form-control text-right">
+                    {{model.ThanhTien | number}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions text-right">
+            <p class="text-left error-message" style="font-size: 11px!important;">* Thông tin bắt buộc</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Lưu</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Hủy</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

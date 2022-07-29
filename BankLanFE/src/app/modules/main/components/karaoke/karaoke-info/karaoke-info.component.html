@@ -1,0 +1,252 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog modal-xl">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Thông Tin Đăng Ký Karaoke</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row  text-center">
+            <div class="form-group row col-md-12 clearfix">
+              <div class="col-md-12">
+                <img width="100" height="100" alt="Logo" [src]="model.Avatar" class="rounded">
+              </div>
+              <div class="col-md-12 m-t-5">
+                <input type="hidden" name="Avatar" [(ngModel)]="model.Avatar" #Avatar="ngModel" />
+                <a style="position: relative;" class="btn btn-outline-primary mt-1">
+                  <input type="file" name="file" appFileUpload="" [ModelID]="model.ID" [typeUpload]="'Karaoke_Avatar'"
+                    [link]="'/api/Utility/UploadFile'" (onStart)="startUploadAvatar($event)"
+                    (onCallback)="callBackUploadAvatar($event)" (onErrorCallback)="errorCallback($event)"
+                    style="opacity: 0;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" />
+                  Thay Logo</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !BusinessName.valid }">
+                <label class="col-md-12">Tên Tổ Chức/Cá Nhân<span class="error-message">*</span>: </label>
+                <div class="col-md-12 mx-auto">
+                  <input type="text" class="form-control" name="BusinessName" [(ngModel)]="model.BusinessName"
+                    #BusinessName="ngModel" required />
+                  <div *ngIf="f.submitted && BusinessName.errors && BusinessName.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !QuanlityRooms.valid }">
+                <label class="col-md-12">Số Phòng Đăng Ký<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <input autocomplete="false" type="number" class="form-control" name="QuanlityRooms"
+                    [(ngModel)]="model.QuanlityRooms" #QuanlityRooms="ngModel" required />
+                  <div *ngIf="f.submitted && QuanlityRooms.errors && QuanlityRooms.errors.required"
+                    class="error-message">Thông tin bắt buộc</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="col-md-12"></label>
+                <div class="col-md-12 mx-auto">
+                  <div class="skin skin-flat mt-1">
+                    <fieldset>
+                      <input class="icheckbox_flat-green checked" type="checkbox" [(ngModel)]="model.IsOrganization"
+                        name="IsOrganization">
+                      <label for="IsOrganization">&nbsp; Là Tổ Chức</label>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3" *ngIf="model.IsOrganization">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !OrganizationID.valid }">
+                <label class="col-md-12">Tên Tổ Chức:</label>
+                <div class="col-md-12 mx-auto">
+                  <input type="hidden" name="OrganizationID" #OrganizationID="ngModel"
+                    [(ngModel)]="model.OrganizationID" required />
+                  <select2 [data]="organizations" [value]="model.OrganizationID"
+                    (valueChanged)="organizationChanged($event)"></select2>
+                  <div *ngIf="f.submitted && OrganizationID.errors && OrganizationID.errors.required"
+                    class="error-message">Thông tin
+                    bắt buộc</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3" *ngIf="!model.IsOrganization">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !RepresentativeID.valid }">
+                <label class="col-md-12">Người Đăng Ký:</label>
+                <div class="col-md-12 mx-auto">
+                  <input type="hidden" name="RepresentativeID" #RepresentativeID="ngModel"
+                    [(ngModel)]="model.RepresentativeID" required />
+                  <select2 [data]="representatives" [value]="model.RepresentativeID"
+                    (valueChanged)="representativeChanged($event)"></select2>
+                  <div *ngIf="f.submitted && RepresentativeID.errors && RepresentativeID.errors.required"
+                    class="error-message">Thông tin
+                    bắt buộc</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Address.valid }">
+                <label class="col-md-12">Địa Chỉ<span class="error-message">*</span>:</label>
+                <div class="col-md-12 mx-auto">
+                  <textarea type="text" class="form-control" name="Address" [(ngModel)]="model.Address"
+                    #Address="ngModel" required rows="2"></textarea>
+                  <div *ngIf="f.submitted && Address.errors && Address.errors.required" class="error-message">Thông tin
+                    bắt buộc</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row col-md-12">
+            <div class="col-md-8 mb-2 text-left">
+              <h4> <b>Danh Sách Giấy Phép</b></h4>
+            </div>
+            <div class="col-md-4 mb-2 text-right">
+              <button type="button" class="text-right btn btn-outline-primary btn-sm" (click)="addLicenseType()"><i
+                  class="la la-plus"></i> Thêm giấy phép
+              </button>
+            </div>
+            <hr>
+          </div>
+
+          <div class="table-responsive col-sm-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="f-11">
+                  <th>#</th>
+                  <th class="text-center">Loại Giấy Phép</th>
+                  <th class="text-center">Số Giấy Phép</th>
+                  <th class="text-center">Ngày Cấp Giấy Phép</th>
+                  <th class="text-center">Cơ Quan Cấp</th>
+                  <th class="text-center">Là Giấy Phép Chính</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let source of model.KaraokeLicenseTypes; let i=index">
+                  <td class="f-12 text-center form-group">
+                    {{i+1}}
+                  </td>
+
+                  <td class="f-12">
+                    <label class="label">
+                      {{getLicenseTypeName(source.LicenseTypeID)}}
+                    </label>
+                  </td>
+
+                  <td class="f-12 text-center">
+                    <label class="badge badge-success">
+                      {{source.LicenseNumber}}
+                    </label>
+                  </td>
+
+                  <td class="f-12 text-center">
+                    <label class="label">
+                      {{source.LicenseDate | date : 'dd/MM/yyyy'}}
+                    </label>
+                  </td>
+                  <td class="f-12 text-center">
+                    <label class="badge badge-success">
+                      {{source.ProviderBy}}
+                    </label>
+                  </td>
+                  <td class="f-12 text-center">
+                    <label class="label" *ngIf="source.IsPrimaryLicense">
+                      <fieldset>
+                        <input disabled="disabled" appICheck checked="checked" class="icheckbox_flat-green checked"
+                          type="checkbox" name="IsPrimaryLicense">
+                      </fieldset>
+                    </label>
+                    <label class="label" *ngIf="!source.IsPrimaryLicense">
+                      <fieldset>
+                        <input disabled="disabled" appICheck class="icheckbox_flat-green" type="checkbox"
+                          name="IsPrimaryLicense">
+                      </fieldset>
+                    </label>
+                  </td>
+                  <td class="f-12">
+                    <div class="col-sm-12 text-center room-style">
+                      <!-- <button *ngIf="isEdit" type="button" class="btn btn-outline-info btn-sm"
+                        (click)="editLicenseType(model.ID, source.ID)">
+                        Sửa
+                      </button>&nbsp;&nbsp; -->
+                      <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeLicenseType(i)">
+                        Xóa
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr *ngIf="model.KaraokeLicenseTypes.length  == 0">
+                  <td colspan="7" class="text-center">
+                    <h5 class="mt-2">Chưa có loại giấy phép nào được đăng ký</h5>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div *ngIf="model.ID" class="row col-md-12">
+            <div class="col-md-8 mb-2 text-left">
+              <h4> <b>Danh Sách Phòng</b></h4>
+            </div>
+            <hr>
+          </div>
+
+          <div *ngIf="model.ID" class="table-responsive col-sm-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="f-11">
+                  <th style="width:10%" class="text-center">#</th>
+                  <th style="width:40%" class="text-center">Tên Phòng</th>
+                  <th style="width:25%" class="text-center">Diện Tích</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let source of model.Rooms; let i=index">
+                  <td class="f-12 text-center form-group">
+                    {{i+1}}
+                  </td>
+
+                  <td class="f-12 text-center">
+                    <label class="label">
+                      {{source.RoomName}}
+                    </label>
+                  </td>
+
+                  <td class="f-12 text-center">
+                    <label class="">
+                      {{source.AreaRoom | number}} m2
+                    </label>
+                  </td>
+                </tr>
+                <tr *ngIf="model.Rooms.length == 0">
+                  <td colspan="4" class="text-center">
+                    <h5 class="mt-2">Chưa có phòng nào được đăng ký</h5>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Lưu</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Hủy</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-karaoke-license-type #addModal (onClosed)="onCloseLicenseType($event)"></app-karaoke-license-type>

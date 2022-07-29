@@ -1,0 +1,97 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Phòng</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row  text-center">
+            <div class="form-group row col-md-12 clearfix">
+              <div class="col-md-12" *ngIf="model.Avatar">
+                <img width="100" height="100" alt="Logo" [src]="model.Avatar" class="rounded">
+              </div>
+              <div class="col-md-12 m-t-5">
+                <input type="hidden" name="Avatar" [(ngModel)]="model.Avatar" #Avatar="ngModel" />
+                <a style="position: relative;" class="btn btn-outline-primary mt-1">
+                  <input type="file" name="file" appFileUpload="" [ModelID]="model.ID" [typeUpload]="'Room_Avatar'"
+                    [link]="'/api/Utility/UploadFile'" (onStart)="startUploadAvatar($event)"
+                    (onCallback)="callBackUploadAvatar($event)" (onErrorCallback)="errorCallback($event)"
+                    style="opacity: 0;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" />
+                  Thay
+                  Avatar</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !RoomTypeId.valid }">
+                <label class="col-md-12">Loại Phòng</label>
+                <div class="col-md-12 mx-auto">
+                  <input type="hidden" name="RoomTypeId" #RoomTypeId="ngModel" [(ngModel)]="model.RoomTypeId"
+                    required />
+                  <select2 [data]="roomType" [value]="model.RoomTypeId" (valueChanged)="roomChanged($event)"></select2>
+                  <div *ngIf="f.submitted && RoomTypeId.errors && RoomTypeId.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Name.valid }">
+                <label class="col-md-12">Tên Phòng<span class="error-message">*</span>: </label>
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="Name" [(ngModel)]="model.Name" #Name="ngModel"
+                    required />
+                  <div *ngIf="f.submitted && Name.errors && Name.errors.required" class="error-message">Yên cầu nhập.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Price.valid }">
+                <label class="col-md-12">Diện Tích Phòng<span class="error-message">*</span>:</label>
+                <div class="col-md-12">
+                  <input type="number" class="form-control" name="AreaRoom" [(ngModel)]="model.AreaRoom"
+                    #AreaRoom="ngModel" required />
+                  <div *ngIf="f.submitted && AreaRoom.errors && AreaRoom.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Price.valid }">
+                <label class="col-md-12">Giá Phòng<span class="error-message">*</span>:</label>
+                <div class="col-md-12">
+                  <input type="number" class="form-control" name="Price" [(ngModel)]="model.Price" #Price="ngModel"
+                    required />
+                  <div *ngIf="f.submitted && Price.errors && Price.errors.required" class="error-message">
+                    Thông tin bắt buộc.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-actions text-right">
+            <p class="text-left error-message" style="font-size: 11px!important;">* Yên cầu nhập</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Lưu</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Hủy</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

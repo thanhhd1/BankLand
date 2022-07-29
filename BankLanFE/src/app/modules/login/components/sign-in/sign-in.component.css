@@ -1,0 +1,286 @@
+.flexboxcustom {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-swap {
+    text-align: right;
+    width: 80%;
+}
+
+.login-btn {
+    align-items: stretch;
+    background: #0000;
+    border: 0;
+    color: inherit;
+    cursor: default;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 500;
+    height: auto;
+    line-height: 1.715em;
+    min-height: 2.572em;
+    outline: 0;
+    padding: 5px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    width: auto;
+
+    background: #ee601a;
+    color: white;
+    border-radius: 28px;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+.sign-up-btn {
+    align-items: stretch;
+    background: #0000;
+    border: 1.5px solid #ee601a;
+    color: inherit;
+    cursor: default;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 500;
+    height: auto;
+    line-height: 1.715em;
+    min-height: 2.572em;
+    outline: 0;
+    padding: 5px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    width: auto;
+
+    /* background:#ee601a; */
+    color: #ee601a;
+    border-radius: 28px;
+    cursor: pointer;
+}
+
+
+.rapper-row {
+    width: 80%;
+}
+
+.rapper-row .logo {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.absolute-full,
+.fixed-full,
+.fullscreen {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.img-content {
+    opacity: 1;
+    transition: opacity .28s ease-in;
+    height: 100%;
+    /* opacity: 0; */
+    width: 100%;
+}
+
+
+
+.wrapper-icon {
+    left: 0;
+    position: relative;
+    text-align: center;
+    top: 50px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.bg-primary {
+    background: #ee601a !important;
+}
+
+.q-avatar {
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 48px;
+    height: 1em;
+    position: relative;
+    vertical-align: middle;
+    width: 1em;
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+.flex-center,
+.items-center {
+    align-items: center;
+}
+
+.flex-center,
+.justify-center {
+    justify-content: center;
+}
+
+.q-avatar__content,
+.q-avatar img:not(.q-icon):not(.q-img__image) {
+    border-radius: inherit;
+    height: inherit;
+    /* width: inherit; */
+}
+
+.material-icons {
+    word-wrap: normal;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga";
+    direction: ltr;
+    display: inline-block;
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1;
+    text-transform: none;
+    white-space: nowrap;
+}
+
+
+.q-avatar__content {
+    font-size: .5em;
+    line-height: .5em;
+}
+
+.custom-btn {
+    bottom: -58px;
+    left: 15%;
+    position: absolute;
+    width: 70%;
+    z-index: 1;
+    line-height: 1.715em;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+}
+
+.form-horizontal-custom {
+    background-color: #fffc;
+    border-radius: 3px;
+    box-shadow: 0 11px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
+    padding: 80px 40px 40px;
+    position: relative;
+    z-index: 999;
+}
+
+
+
+/* Don't forget to add Font Awesome CSS : "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+input[type="text"] {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+  
+  input[type="text"]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+  }
+  
+  .inputWithIcon input[type="text"] {
+    padding-left: 40px;
+  }
+  
+  .inputWithIcon {
+    position: relative;
+  }
+  
+  .inputWithIcon i {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 0.3s;
+  }
+  
+  .inputWithIcon input[type="text"]:focus + i {
+    color: dodgerBlue;
+  }
+  
+  .inputWithIcon.inputIconBg i {
+    background-color: #aaa;
+    color: #fff;
+    padding: 9px 4px;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .inputWithIcon.inputIconBg input[type="text"]:focus + i {
+    color: #fff;
+    background-color: dodgerBlue;
+  }
+   */
+
+
+.has-icon-left .form-control-position {
+    right: auto;
+    /* left: inherit; */
+    height: -webkit-fill-available;
+    background-color: #1a9199;
+    width: 57px;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    /* vertical-align: middle; */
+    /* align-content: inherit; */
+}
+
+.has-icon-left .form-control {
+    height: 54px;
+    padding-right: -1rem;
+    padding-left: -webkit-calc(1.25em + 1.5rem + 2px);
+    padding-left: -moz-calc(1.25em + 1.5rem + 2px);
+    padding-left: calc(3.25em + 1.5rem + 2px);
+}
+
+.icon-custom {
+    font-size: 36px;
+    color: white;
+    vertical-align: middle;
+}
+
+.form-check-input-custom{
+    position: absolute;
+    margin-top: 0.3rem;
+}
+
+
+@media only screen and (max-width: 768px)  {
+    .m-t-50{
+        margin-top:0px;
+    }
+}

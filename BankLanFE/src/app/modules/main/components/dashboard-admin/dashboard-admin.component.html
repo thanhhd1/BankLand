@@ -1,0 +1,91 @@
+<div class="content-body">
+  <div class="row">
+    <div class="col-12">
+      <div class="card" [appActionCardButton]="'administrator-dashbord-filter'">
+        <div class="card-header">
+          <h4 class="card-title">Bộ Lọc</h4>
+          <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+          <div class="heading-elements">
+            <ul class="list-inline mb-0">
+              <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+              <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-content show">
+          <div class="card-body card-dashboard">
+            <form name="form" class="form form-horizontal" (ngSubmit)="search()" #f="ngForm" novalidate>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-md-12">Từ Ngày: </label>
+                    <div class="col-md-12 mx-auto">
+                      <app-date-time-picker name="FromDate" [(ngModel)]="model.FromDate" #FromDate="ngModel"
+                        [hasTime]="false" required>
+                      </app-date-time-picker>
+                      <div *ngIf="f.submitted && FromDate.errors && FromDate.errors.required" class="error-message">
+                        Thông tin bắt buộc</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-md-12">Đến Ngày: </label>
+                    <div class="col-md-12 mx-auto">
+                      <app-date-time-picker name="ToDate" [(ngModel)]="model.ToDate" #ToDate="ngModel" [hasTime]="false"
+                        required>
+                      </app-date-time-picker>
+                      <div *ngIf="f.submitted && ToDate.errors && ToDate.errors.required" class="error-message">
+                        Thông tin bắt buộc</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label class="col-md-12">&nbsp;</label>
+                    <div class="col-md-12 mx-auto">
+                      <button type="submit" class="btn btn-outline-primary">
+                        <i class="ft-search"></i> Tìm Kiếm</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card" [appActionCardButton]="'administrator-dashboard'">
+        <div class="card-header">
+          <h4 class="card-title">Báo Cáo Tình Hình Quản Lý Lưu Trú Và Các Dịch Vụ Huyện Đảo Lý Sơn</h4>
+        </div>
+        <div class="card-content collapse show">
+          <div class="card-body card-dashboard" id="exportReport">
+
+
+            <div class="row"
+              *ngIf="currentUser.Role == 'Administrator' || currentUser.Role == 'Employee_Cultural_Services'">
+              <h4 class="form-section"><i class="la la-building"></i> Thông Tin Quản Lý Dịch Vụ Văn Hóa </h4>
+            </div>
+
+
+            <div class="row"
+              *ngIf="currentUser.Role == 'Administrator' ||  currentUser.Role == 'Employee_Travel_Services'">
+              <h4 class="form-section"><i class="la la-cloud"></i> Thông Tin Quản Lý Dịch Vụ Du Lịch </h4>
+            </div>
+
+
+            <div class="row" *ngIf="currentUser.Role == 'Administrator' || currentUser.Role == 'Employee_Historical'">
+              <h4 class="form-section"><i class="la la-folder-open"></i> Thông Tin Quản Lý Di Tích Lịch Sử </h4>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

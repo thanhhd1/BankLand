@@ -1,0 +1,102 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog modal-lg">
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Đặt Phòng</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group row clearfix">
+            <div class="col-sm-12">
+              <label class="col-sm-12 control-label">Chọn Phòng</label>
+              <div class="col-sm-12">
+                <select class="form-control" (change)="onchangRoomSelect()" name="RoomID" [(ngModel)]="model.RoomID"
+                  #RoomID="ngModel" required>
+                  <option value="">--Chọn Phòng--</option>
+                  <option [value]="item.ID" *ngFor="let item of roomSource">
+                    {{item.Name}} - {{item.AreaRoom}}</option>
+                </select>
+                <div *ngIf="f.submitted && RoomID.errors && RoomID.errors.required" class="error-message">Thông tin
+                  bắt buộc.</div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row clearfix">
+            <div class="col-sm-12">
+              <div class="col-md-12">
+                <fieldset>
+                  <input class="icheckbox_flat-green checked" type="checkbox" [(ngModel)]="model.IsManualPrice"
+                    name="IsManualPrice">
+                  <label for="IsManualPrice">Nhân viên tự tính tổng tiền</label>
+                </fieldset>
+                <span>Ghi Chú: Nếu bạn chọn tự tính tổng tiền, số tiền được nhập để tính cho khách </span>
+                <span>ví dụ : khách ở 2 ngày và bạn nhập giá tiền = 1,000,000 VNĐ đây sẽ là tổng tiền phòng của 2 ngày
+                  đó.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row clearfix">
+            <div class="col-sm-12">
+              <label class="col-sm-12 control-label">Giá Phòng</label>
+              <div class="col-sm-12">
+                <input class="form-control" type="number" data-format="#,###" class="form-control text-right" name="Price"
+                  [(ngModel)]="model.Price" #Price="ngModel" required>
+                <div *ngIf="f.submitted && Price.errors && Price.errors.required" class="error-message">
+                  Thông tin bắt buộc.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row clearfix">
+            <div class="col-sm-12">
+              <label class="col-sm-12 control-label">Ngày Nhận Phòng</label>
+              <div class="col-sm-12">
+                <app-date-time-picker #CheckinDate="ngModel" required name="CheckinDate"
+                  [(ngModel)]="model.CheckinDate"></app-date-time-picker>
+                <div *ngIf="f.submitted && CheckinDate.errors && CheckinDate.errors.required" class="error-message">
+                  Thông tin bắt buộc nhập đầy đủ.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row clearfix">
+            <div class="col-sm-12">
+              <label class="col-sm-12 control-label">Ngày Trả Phòng</label>
+              <div class="col-sm-12">
+                <app-date-time-picker [gt]="model.CheckinDate" name="CheckoutDate" [(ngModel)]="model.CheckoutDate"
+                  #CheckoutDate="ngModel" required>
+                </app-date-time-picker>
+                <div *ngIf="f.submitted && CheckoutDate.errors && CheckoutDate.errors.required" class="error-message">
+                  Thông tin bắt buộc nhập đầy đủ.</div>
+                <div
+                  *ngIf="f.submitted && CheckoutDate.errors && !CheckoutDate.errors.required && CheckoutDate.errors?.gt"
+                  class="error-message">
+                  Ngày Trả Phòng phải lớn hơn Ngày Nhận Phòng</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row clearfix">
+            <div class="col-sm-12">
+              <label class="col-sm-12 control-label">Tổng Tiền</label>
+              <div class="col-sm-12">
+                <label class="form-control text-right">{{getThanhTien() | number}} VNĐ</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="col-md-12 text-right">
+            <button class="btn btn-primary" type="submit">Lưu</button>
+            <button class="btn btn-default" (click)="hide()" type="button">Đóng </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

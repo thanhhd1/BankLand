@@ -1,0 +1,97 @@
+<div class="content-body">
+  <div class="row">
+    <div class="col-12">
+      <div class="card" [appActionCardButton]="'administrator-dashbord-filter'">
+        <div class="card-header">
+          <h4 class="card-title">Bộ Lọc - Ngày Công Nhận Di Tích</h4>
+          <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+          <div class="heading-elements">
+            <ul class="list-inline mb-0">
+              <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+              <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-content show">
+          <div class="card-body card-dashboard">
+            <form name="form" class="form form-horizontal" (ngSubmit)="search()" #f="ngForm" novalidate>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="col-md-12">Từ Ngày: </label>
+                    <div class="col-md-12 mx-auto">
+                      <app-date-time-picker name="FromDate" [(ngModel)]="criteria.FromDate" #FromDate="ngModel"
+                        [hasTime]="false" required>
+                      </app-date-time-picker>
+                      <div *ngIf="f.submitted && FromDate.errors && FromDate.errors.required" class="error-message">
+                        Thông tin bắt buộc</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="col-md-12">Đến Ngày: </label>
+                    <div class="col-md-12 mx-auto">
+                      <app-date-time-picker name="ToDate" [(ngModel)]="criteria.ToDate" #ToDate="ngModel"
+                        [hasTime]="false" required>
+                      </app-date-time-picker>
+                      <div *ngIf="f.submitted && ToDate.errors && ToDate.errors.required" class="error-message">
+                        Thông tin bắt buộc</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-md-12">&nbsp;</label>
+                    <div class="col-md-12 mx-auto">
+                      <button type="submit" class="btn btn-outline-primary">
+                        <i class="ft-search"></i> Tìm Kiếm</button>&nbsp;&nbsp;
+                      <button *ngIf="IsShow" class="btn btn-warning" type="button" (click)="printReport()">
+                        <i class="fa fa-print"></i> In báo cáo
+                      </button>&nbsp;&nbsp;
+                      <button *ngIf="IsShow" class="btn btn-primary" type="button" (click)="exportExcel()">
+                        <i class="fa fa-file-excel-o"></i> Xuất excel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card" [appActionCardButton]="'administrator-dashboard'">
+        <div class="card-header">
+          <h2 class="card-title">Thông Tin Quản Lý Di Tích Lịch Sử</h2>
+        </div>
+        <div class="card-content collapse show">
+          <div class="card-body card-dashboard" id="exportReport" *ngIf="IsShow">
+            <div class="row col-md-12">
+              <p class="header-report col-md-12" style="text-align: center;"> THỐNG KÊ SỐ LƯỢNG DI TÍCH LỊCH SỬ ĐƯỢC
+                CÔNG NHẬN TỪ NGÀY
+                {{model.FromDate | date:'dd/MM/yyyy'}} ĐẾN NGÀY {{model.ToDate | date:'dd/MM/yyyy'}} </p>
+              <div class="row col-md-12">
+                <table id="report" style="width: 100%;border-collapse: collapse;" border="1px;">
+                  <tr>
+                    <td style="width: 70%;">Số Lượng Di Tích Cấp Tỉnh: </td>
+                    <td style="width: 30%;text-align: center">{{model.HistoricalSiteType_Province}}</td>
+                  </tr>
+                  <tr>
+                    <td style="width: 70%;">Số Lượng Di Tích Cấp Quốc Gia: </td>
+                    <td style="width: 30%; text-align: center;">{{model.HistoricalSiteType_National}}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

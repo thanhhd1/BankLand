@@ -1,0 +1,86 @@
+<div class="col-sm-12 mb-2 text-right">
+  <button type="button" *ngIf="!model.IsCompleted" class="btn btn-outline-primary btn-sm" (click)="selectRoom()"><i
+      class="la la-plus"></i> Thêm
+    Chọn Phòng
+  </button>
+</div>
+
+<div class="table-responsive col-sm-12">
+  <table class="table table-bordered">
+    <thead>
+      <tr class="f-11">
+        <th>#</th>
+        <th class="text-center">Tên Phòng</th>
+        <th class="text-center">Thuê Theo Giờ</th>
+        <th class="text-center">Ngày CheckIn</th>
+        <th class="text-center">Ngày CheckOut</th>
+        <th class="text-center">Đơn Giá</th>
+        <th class="text-center">Thành Tiền</th>
+        <th *ngIf="!model.IsCompleted"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let source of model.OrderRoomDetails; let i=index">
+        <td class="f-12 text-center form-group">
+          {{i+1}}
+        </td>
+
+        <td class="f-12">
+          <label class="label">
+            {{source.RoomName}}
+          </label>
+        </td>
+
+        <td class="f-12 text-center">
+          <label class="badge badge-success">
+            {{source.IsManualPrice?'Giá Tự Tính':'Giá Tự Động'}}
+          </label>
+        </td>
+
+        <td class="f-12 text-center">
+          <label class="label" *ngIf="source.CheckinDate">
+            {{source.CheckinDate | date : 'dd/MM/yyyy HH:mm'}}
+          </label>
+        </td>
+
+        <td class="f-12 text-center">
+          <div *ngIf="!source.IsManualPrice">
+            <label *ngIf="source.CheckoutDate">
+              {{source.CheckoutDate | date : 'dd/MM/yyyy HH:mm'}}
+            </label>
+          </div>
+
+        </td>
+
+        <td class="f-12 text-right">
+          <label>
+            {{source.Price | currency:' ':'symbol':'4.0-2'}} VNĐ
+          </label>
+        </td>
+
+        <td class="f-12 text-right">
+          <label>
+            {{getThanhTien(source)  |currency:' ':'symbol':'4.0-2'}} VNĐ
+          </label>
+        </td>
+        <td class="f-12" *ngIf="!model.IsCompleted">
+          <div class="col-sm-12 text-center room-style">
+            <button *ngIf="isEdit" type="button" class="btn btn-outline-info btn-sm" (click)="editRoom(source.ID)">
+              Sửa
+            </button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeRoom(i)">
+              Xóa
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="model.OrderRoomDetails.length  == 0">
+        <td colspan="8" class="text-center">
+          <h5 class="mt-2">Nhấn Thêm Phòng để thêm mới phòng đến hoá đơn</h5>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-order-room-detail #selectRoomModal (onClosed)="selectBookingRoom($event)"></app-order-room-detail>

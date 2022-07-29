@@ -1,0 +1,49 @@
+<div bsModal #childModal="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" class="modal fade" tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog">
+    <!-- /.modal-content -->
+    <form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{isEdit?'Chỉnh Sửa':'Thêm Mới'}} Loại Giấy Phép</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Name.valid }">
+                <label class="col-md-12">Loại Giấy Phép<span class="error-message">*</span>: </label>
+                <div class="col-md-12 mx-auto">
+                  <select class="form-control" name="Type" [(ngModel)]="model.Type" #Type="ngModel">
+                    <option value="0">Dịch Vụ Lưu Trú - Khách Sạn, Nhà Nghỉ, HomeStay</option>
+                    <option value="1">Dịch Vụ Văn Hóa - Internet</option>
+                    <option value="2">Dịch Vụ Văn Hóa - Karaoke</option>
+                  </select>
+                  <div *ngIf="f.submitted && Type.errors && Type.errors.required" class="error-message">Thông tin bắt
+                    buộc.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Name.valid }">
+                <label class="col-md-12">Tên Giấy Phép<span class="error-message">*</span>: </label>
+                <div class="col-md-12 mx-auto">
+                  <input type="text" class="form-control" name="Name" [(ngModel)]="model.Name" #Name="ngModel"
+                    required />
+                  <div *ngIf="f.submitted && Name.errors && Name.errors.required" class="error-message">Thông tin bắt
+                    buộc.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-min-width box-shadow-4 mr-1"
+            [disabled]="Submitting">Save</button>
+          <button type="button" class="btn btn-outline-secondary btn-min-width box-shadow-4"
+            (click)="cancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

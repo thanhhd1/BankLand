@@ -1,0 +1,11 @@
+.logo > img{
+    display: block;
+    height: 60px;
+}
+
+@media only screen and (max-width: 768px)  {
+      .logo > img{
+        display: block;
+        height: 32px;
+    }
+}

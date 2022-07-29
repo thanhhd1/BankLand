@@ -1,0 +1,95 @@
+<form name="form" class="form form-horizontal" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+  <div class="form-body col-md-12">
+    <div class="row  text-center">
+      <div class="form-group row col-md-12 clearfix">
+        <div class="col-md-12">
+          <img width="100" height="100" alt="Logo" [src]="model.ProfilePicturePath" class="rounded">
+        </div>
+        <div class="col-md-12 m-t-5">
+          <button type="button" style="width:135px;" class="btn btn-outline-primary mt-1" (click)="cropImage()">Thay
+            Avatar</button>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="form-section"><i class="la la-user"></i> Thông Tin Cá Nhân </h4>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="label-control">Email: </label>
+          <label class="form-control">{{model.Email}}</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="label-control"> </label>
+        <label class="label-control"> </label>
+        <div class="form-group" *ngIf="model.Id !== currentUser.Id">
+          <fieldset>
+            <input appICheck class="icheckbox_flat-green checked" type="checkbox" [(ngModel)]="model.IsInactived"
+              name="IsInactived">
+            <label for="IsInactived">&nbsp;&nbsp;Người Dùng Không Hoạt Động</label>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Name.valid }">
+          <label class="label-control">Tên Người Dùng<span class="error-message">*</span></label>
+          <input type="text" class="form-control" name="Name" [(ngModel)]="model.Name" #Name="ngModel" required />
+          <div *ngIf="f.submitted && Name.errors && Name.errors.required" class="error-message">
+            Thông tin bắt buộc.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !PhoneNumber.valid }">
+          <label class="label-control">Số Điện Thoại<sup class="red"> *</sup></label>
+          <input autocomplete="off" type="text" class="form-control" [textMask]="{mask: maskPhone}" name="Phone Number"
+            [(ngModel)]="model.PhoneNumber" #PhoneNumber="ngModel" [required]="model.PhoneNumber?null:true" />
+          <div *ngIf="f.submitted && PhoneNumber.errors && PhoneNumber.errors.required" class="error-message">Yên cầu
+            nhập.</div>
+          <div *ngIf="f.submitted && PhoneNumber.errors && !PhoneNumber.errors.required && PhoneNumber.errors.pattern"
+            class="error-message">Giá trị không hợp lệ.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Role.valid }">
+          <label class="label-control">Vai Trò:<span class="error-message">*</span></label>
+          <input autocomplete="off" type="hidden" class="form-control" name="Role" #Role="ngModel"
+            [(ngModel)]="model.Role" required />
+          <select2 [data]="roles" [value]="model.Role" (valueChanged)="roleChanged($event)"></select2>
+          <div *ngIf="f.submitted && Role.errors && Role.errors.required" class="error-message">
+            Thông tin bắt buộc.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" *ngIf="model.Role !== 'Administrator'">
+          <label class="label-control">Loại Hình Kinh Doanh:</label>
+          <input type="hidden" class="form-control" name="CompanyID" #CompanyID="ngModel"
+            [(ngModel)]="model.CompanyID" />
+          <select2 [data]="companies" [value]="model.CompanyID" (valueChanged)="companyChanged($event)"
+            [disabled]="currentUser.Role !== 'Administrator' ? 'disabled':null"></select2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions text-right">
+    <p class="text-left error-message" style="font-size: 11px!important;">* Thông tin bắt buộc</p>
+
+    <button type="submit" [disabled]="Submitting" class="btn btn-info btn-min-width box-shadow-4 mr-1">
+      <i class="la la-check-square-o"></i> Lưu
+    </button>
+    <button type="button" (click)="cancel()" class="btn btn-outline-secondary btn-min-width box-shadow-4">
+      <i class="ft-x"></i> Hủy
+    </button>
+  </div>
+</form>
+<app-crop-image #cropImageApp (onClose)="changeAvatar($event)" [typeUpload]="'User_Avatar'"
+  [link]="'/api/Utility/UploadFile'" [ModelID]="model.Id"></app-crop-image>

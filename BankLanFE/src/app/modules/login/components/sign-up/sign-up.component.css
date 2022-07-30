@@ -5,8 +5,9 @@
 }
 
 .login-swap{
-    text-align: right;
+    text-align: left;
     width: 80%;
+    margin-left: 2%;
 }
 
 .sign-up-btn{
@@ -31,7 +32,7 @@
     vertical-align: middle;
     width: auto;
 
-    background:#ee601a;
+    background:#1809f0;
     color: white;
     border-radius: 28px;
     cursor: pointer;
@@ -40,7 +41,7 @@
 .login-btn{
     align-items: stretch;
     background: #0000;
-    border: 1.5px solid #ee601a;
+    border: 1.5px solid #1809f0;
     color: inherit;
     cursor: default;
     display: inline-flex;
@@ -60,7 +61,7 @@
     width: auto;
 
     /* background:#ee601a; */
-    color: #ee601a;
+    color: #1809f0;
     border-radius: 28px;
     cursor: pointer;
 }
@@ -103,7 +104,7 @@
     color: #fff!important;
 }
 .bg-primary {
-    background: #ee601a !important;
+    background: #1809f0 !important;
 }
 .q-avatar {
     border-radius: 50%;
@@ -160,7 +161,7 @@
     z-index: 1;
     line-height: 1.715em;
     font-size: 20px;
-    background-color: white;
+    background-color: rgb(14, 245, 168);
     border: none;
 }
 .form-horizontal-custom{

@@ -68,7 +68,7 @@ html body.content-boxed-layout .content {
   padding-right : 260px;
 }
 html body.bg-full-screen-image {
-  background : url(../../app-assets/images/backgrounds/background.jpg) no-repeat center center fixed;
+  background : url(../../app-assets/images/backgrounds/bg_megaland_1.jpg) no-repeat center center fixed;
   -webkit-background-size : cover;
           background-size : cover;
 }

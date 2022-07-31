@@ -1,13 +1,14 @@
-<div appInitMenu="" [isNeedChange]="stringChange" (onChangeMode)="changeMode($event)">
+<!-- <div appInitMenu="" [isNeedChange]="stringChange" (onChangeMode)="changeMode($event)"> -->
   <nav
-    class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow navbar-static-top navbar-light navbar-brand-center">
-    <div class="navbar-wrapper" app-header  (onChangePassword)="changepassword()"></div>
+  class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-primary navbar-shadow">
+    <div class="navbar-wrapper" app-header></div>
   </nav>
 
-  <div class="header-navbar navbar-expand-sm navbar navbar-horizontal navbar-fixed navbar-light navbar-without-dd-arrow navbar-shadow"
-    role="navigation" data-menu="menu-wrapper">
-    <div class="navbar-container main-menu-content" data-menu="menu-container" app-side-bar (onChangePassword)="changepassword()">
-    </div>
+  <div class="main-menu material-menu menu-fixed menu-light menu-accordion menu-shadow" 
+  app-side-bar (onChangePassword)="changepassword()" data-scroll-to-active="true" >
+    <!-- role="navigation" data-menu="menu-wrapper" -->
+    <!-- <div class="navbar-container main-menu-content" data-menu="menu-container" app-side-bar (onChangePassword)="changepassword()">
+    </div> -->
   </div>
 
   <!-- <div id="sidebar" class="col-lg-3 col-md-3 col-3 ">
@@ -27,4 +28,4 @@
   <!-- <footer class="footer fixed-bottom footer-static footer-light navbar-shadow" app-footer>
 
   </footer>  -->
-</div> 
+<!-- </div>  -->

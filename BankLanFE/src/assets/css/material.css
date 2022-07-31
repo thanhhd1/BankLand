@@ -58,9 +58,9 @@
           box-sizing : inherit;
 }
 
-@-ms-viewport {
+/* @-ms-viewport {
   width : device-width;
-}
+} */
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display : block;
@@ -9132,7 +9132,7 @@ a.btn.disabled, fieldset:disabled a.btn {
      -moz-transition-timing-function : cubic-bezier(0.4, 0, 0.2, 1);
        -o-transition-timing-function : cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function : cubic-bezier(0.4, 0, 0.2, 1);
-  background-clip : content-box;
+  --background-clip : content-box;
   background-color : rgba(0, 0, 0, 0.38);
   border : 0.355rem solid transparent;
   border-radius : 1rem;
@@ -10037,7 +10037,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .form-control, .custom-select, .form-control-file {
-  background-clip : padding-box;
+  --background-clip : padding-box;
   background-color : transparent;
   border-color : rgba(0, 0, 0, 0.3);
   border-radius : 0;
@@ -16075,4 +16075,857 @@ a.text-light:active, a.text-light:focus, a.text-light:hover {
   .table .thead-dark td, .table .thead-dark th {
     color : inherit;
   }
+}
+
+
+
+
+body.horizontal-layout.horizontal-menu .main-menu .navigation > li > a > i {
+  font-size : 1.6rem;
+}
+
+@media (min-width: 576px) {
+  body.horizontal-layout.horizontal-menu.menu-flipped .main-menu {
+    right : 0;
+  }
+}
+
+body.horizontal-layout.horizontal-menu .navbar .navbar-brand {
+  white-space : nowrap;
+}
+
+body.horizontal-layout.horizontal-menu.menu-expanded .navbar .navbar-header {
+  float : left;
+  width : 260px;
+}
+
+body.horizontal-layout.horizontal-menu.menu-expanded .navbar.navbar-brand-center .navbar-header {
+  float : left;
+  width : auto;
+}
+
+body.horizontal-layout.horizontal-menu.menu-expanded .navbar .navbar-container {
+  margin-left : 260px;
+}
+
+body.horizontal-layout.horizontal-menu.menu-expanded .navbar .navbar-brand .brand-text {
+  -webkit-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+     -moz-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+       -o-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+          animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+  visibility : visible;
+}
+
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu {
+  width : 260px;
+  -webkit-transition : 300ms ease all;
+       -o-transition : 300ms ease all;
+     -moz-transition : 300ms ease all;
+          transition : 300ms ease all;
+  -webkit-backface-visibility : hidden;
+     -moz-backface-visibility : hidden;
+          backface-visibility : hidden;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu.menu-fixed {
+  height : -webkit-calc(100% - 5rem);
+  height :    -moz-calc(100% - 5rem);
+  height :         calc(100% - 5rem);
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu.menu-fixed .main-menu-content {
+  height : -webkit-calc(100% - 10rem) !important;
+  height :    -moz-calc(100% - 10rem) !important;
+  height :         calc(100% - 10rem) !important;
+  position : relative;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation .navigation-header span {
+  visibility : visible;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation .navigation-header .la-ellipsis-h, body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation .navigation-header .nav-menu-icon {
+  display : none;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation > li > a > i {
+  margin-right : 12px;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation > li > a > i:before {
+  font-size : 1.6rem;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation > li > a > span {
+  visibility : visible;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation > li > a > span.badge {
+  visibility : visible;
+  position : absolute;
+  right : 20px;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation li.has-sub > a:not(.mm-next):after {
+  content : '\f112';
+  font-family : 'LineAwesome';
+  font-size : 1rem;
+  display : inline-block;
+  position : absolute;
+  right : 20px;
+  top : 14px;
+  -webkit-transform : rotate(0deg);
+     -moz-transform : rotate(0deg);
+      -ms-transform : rotate(0deg);
+       -o-transform : rotate(0deg);
+          transform : rotate(0deg);
+  transition : -webkit-transform 0.2s ease-in-out;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation li.has-sub .has-sub > a:not(.mm-next):after {
+  top : 8px;
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .navigation li.open > a:not(.mm-next):after {
+  -webkit-transform : rotate(90deg);
+     -moz-transform : rotate(90deg);
+      -ms-transform : rotate(90deg);
+       -o-transform : rotate(90deg);
+          transform : rotate(90deg);
+}
+body.horizontal-layout.horizontal-menu.menu-expanded.main-menu .main-menu-footer {
+  width : 260px;
+}
+
+body.horizontal-layout.horizontal-menu.menu-expanded .content, body.horizontal-layout.horizontal-menu.menu-expanded .footer {
+  margin-left : 260px;
+}
+
+body.horizontal-layout.horizontal-menu.menu-expanded .navbar-brand-center .content, body.horizontal-layout.horizontal-menu.menu-expanded .navbar-brand-center .footer {
+  margin-left : 0;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed .navbar .navbar-header {
+  float : left;
+  width : 60px;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed .navbar.navbar-brand-center .navbar-header {
+  float : left;
+  width : auto;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed .navbar.navbar-brand-center .navbar-brand .brand-text {
+  -webkit-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+     -moz-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+       -o-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+          animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed .navbar .navbar-brand {
+  padding : 18px 0;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed .navbar .navbar-container {
+  margin-left : 60px;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed .navbar .navbar-brand .brand-text {
+  -webkit-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadeout;
+     -moz-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadeout;
+       -o-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadeout;
+          animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadeout;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu{
+  width : 60px;
+  -webkit-transform : translateZ(-160px) translateX(-160px);
+     -moz-transform : translateZ(-160px) translateX(-160px);
+          transform : translateZ(-160px) translateX(-160px);
+  -webkit-transform : translate3d(0, 0, 0);
+     -moz-transform : translate3d(0, 0, 0);
+          transform : translate3d(0, 0, 0);
+  -webkit-transition : 300ms ease all;
+       -o-transition : 300ms ease all;
+     -moz-transition : 300ms ease all;
+          transition : 300ms ease all;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-footer {
+  width : 60px;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.material-menu.menu-fixed .main-menu-content {
+  height : -webkit-calc(100% - 8.4rem) !important;
+  height :    -moz-calc(100% - 8.4rem) !important;
+  height :         calc(100% - 8.4rem) !important;
+  position : relative;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-footer, body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-header .media-body .media-heading, body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-header .media-body .text-muted, body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-header .media-right {
+  display : none;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-header .media-body {
+  opacity : 0;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.user-content {
+  padding : 20px 10px;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > span.menu-title, body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content a.menu-title {
+  right : -260px;
+  width : 260px;
+  font-weight : 600;
+  color : #FFFFFF;
+  text-transform : uppercase;
+  text-align : left;
+  background-color : #00BCD4;
+  border-color : #00BCD4;
+  padding : 14px 20px;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content {
+  left : 60px;
+  width : 260px;
+  -webkit-transition : visibility 0.25s,opacity 0.25s;
+       -o-transition : visibility 0.25s,opacity 0.25s;
+     -moz-transition : visibility 0.25s,opacity 0.25s;
+          transition : visibility 0.25s,opacity 0.25s;
+  -webkit-box-shadow : 25px 5px 75px 2px rgba(64, 70, 74, 0.2);
+          box-shadow : 25px 5px 75px 2px rgba(64, 70, 74, 0.2);
+  border-bottom : 1px solid rgba(0, 0, 0, 0.2);
+  border-left : 1px solid rgba(0, 0, 0, 0.02);
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content li {
+  white-space : nowrap;
+  position : relative;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content li a {
+  display : block;
+  padding : 8px 20px 8px 20px;
+  -webkit-transition : all 0.2s ease;
+       -o-transition : all 0.2s ease;
+     -moz-transition : all 0.2s ease;
+          transition : all 0.2s ease;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content li.has-sub > a:not(.mm-next):after {
+  content : '\f112';
+  font-family : 'LineAwesome';
+  font-size : 1rem;
+  display : inline-block;
+  position : absolute;
+  right : 20px;
+  top : 14px;
+  -webkit-transform : rotate(0deg);
+     -moz-transform : rotate(0deg);
+      -ms-transform : rotate(0deg);
+       -o-transform : rotate(0deg);
+          transform : rotate(0deg);
+  transition : -webkit-transform 0.2s ease-in-out;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content li.has-sub .has-sub > a:not(.mm-next):after {
+  top : 8px;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content li.open > a:not(.mm-next):after {
+  -webkit-transform : rotate(90deg);
+     -moz-transform : rotate(90deg);
+      -ms-transform : rotate(90deg);
+       -o-transform : rotate(90deg);
+          transform : rotate(90deg);
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content li:hover > a, body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content li.hover > a {
+  -webkit-transform : translateX(4px);
+     -moz-transform : translateX(4px);
+      -ms-transform : translateX(4px);
+       -o-transform : translateX(4px);
+          transform : translateX(4px);
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content li:hover > a > a, body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > ul.menu-content li.hover > a > a {
+  -webkit-transform : translateX(-4px);
+     -moz-transform : translateX(-4px);
+      -ms-transform : translateX(-4px);
+       -o-transform : translateX(-4px);
+          transform : translateX(-4px);
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation {
+  overflow : visible;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li.navigation-header {
+  padding : 22px 20px 8px 20px;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li.navigation-header .la-ellipsis-h {
+  display : block;
+  font-size : 1.3rem;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li.navigation-header span {
+  display : none;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li > a {
+  padding : 10px 0 10px 18px;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li > a > span {
+  visibility : hidden;
+  opacity : 0;
+  position : absolute;
+  top : 0;
+  right : -260px;
+  width : 260px;
+  font-weight : 600;
+  color : #FFFFFF;
+  text-align : left;
+  background-color : #673AB7;
+  border-color : #673AB7;
+  padding : 14px 20px;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li > a > i {
+  margin-right : 0;
+  font-size : 1.6rem;
+  line-height : 1;
+  visibility : visible;
+  opacity : 1;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li > ul {
+  display : none;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li > a > span {
+  display : none;
+}
+body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.mTSWrapper {
+  overflow : visible;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed .content, body.horizontal-layout.horizontal-menu.menu-collapsed .footer {
+  margin-left : 60px;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed .navbar-brand-center .content, body.horizontal-layout.horizontal-menu.menu-collapsed .navbar-brand-center .footer {
+  margin-left : 0;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed.menu-flipped .content {
+  margin : 0;
+  margin-right : 60px;
+}
+
+@media (min-width: 576px) {
+  body.horizontal-layout.horizontal-menu.menu-collapsed.menu-flipped .main-menu {
+    right : 0;
+  }
+  body.horizontal-layout.horizontal-menu.menu-collapsed.menu-flipped .main-menu span.menu-title {
+    right : 60px;
+  }
+  body.horizontal-layout.horizontal-menu.menu-collapsed.menu-flipped .main-menu ul.menu-content {
+    right : 60px;
+    left : inherit;
+  }
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed.menu-flipped .navbar .navbar-header {
+  float : right;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed.menu-flipped .navbar .navbar-container {
+  margin : 0;
+  margin-right : 60px;
+}
+
+body.horizontal-layout.horizontal-menu.menu-collapsed.menu-flipped .footer {
+  margin : 0;
+  margin-right : 60px;
+}
+
+[data-textdirection='rtl'] body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li > a {
+  padding : 14px 16px !important;
+}
+
+[data-textdirection='rtl'] body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.navigation > li.navigation-header .la-ellipsis-h {
+  padding : 12px 0;
+}
+
+@media (min-width: 992px) {
+  body.horizontal-layout.horizontal-menu .main-menu {
+    width : 260px;
+  }
+  body.horizontal-layout.horizontal-menu .navbar .navbar-header {
+    width : 260px;
+  }
+  body.horizontal-layout.horizontal-menu .content, body.horizontal-layout.horizontal-menu .footer {
+    margin-left : 260px;
+  }
+  body.horizontal-layout.horizontal-menu.menu-flipped .content {
+    margin : 0;
+    margin-right : 260px;
+  }
+  body.horizontal-layout.horizontal-menu.menu-flipped .navbar .navbar-header {
+    float : right;
+  }
+  body.horizontal-layout.horizontal-menu.menu-flipped .navbar .navbar-container {
+    margin : 0;
+    margin-right : 260px;
+  }
+  body.horizontal-layout.horizontal-menu.menu-flipped .footer {
+    margin : 0;
+    margin-right : 260px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  body.horizontal-layout.horizontal-menu .main-menu {
+    width : 60px;
+  }
+  body.horizontal-layout.horizontal-menu .main-menu .navigation > li > a > span {
+    visibility : hidden;
+  }
+  body.horizontal-layout.horizontal-menu .main-menu .navigation > li > a > i {
+    font-size : 1.4rem;
+  }
+  body.horizontal-layout.horizontal-menu .main-menu .navigation li.navigation-header span {
+    visibility : hidden;
+  }
+  body.horizontal-layout.horizontal-menu .navbar .navbar-header {
+    width : 60px;
+  }
+  body.horizontal-layout.horizontal-menu .navbar .navbar-header .brand-text {
+    visibility : hidden;
+  }
+  body.horizontal-layout.horizontal-menu .content, body.horizontal-layout.horizontal-menu .footer {
+    margin-left : 60px;
+  }
+  body.horizontal-layout.horizontal-overlay-menu[data-menu='horizontal-menu'].boxed-layout.menu-open .main-menu {
+    -webkit-transform : translate3d(70px, 0, 0);
+       -moz-transform : translate3d(70px, 0, 0);
+            transform : translate3d(70px, 0, 0);
+  }
+  body.horizontal-layout.horizontal-overlay-menu[data-menu='horizontal-menu'] .main-menu.material-menu .main-menu-content {
+    height : -webkit-calc(100% - 10rem) !important;
+    height :    -moz-calc(100% - 10rem) !important;
+    height :         calc(100% - 10rem) !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.horizontal-layout.horizontal-menu .content, body.horizontal-layout.horizontal-menu .footer {
+    margin-left : 0;
+  }
+  body.horizontal-layout.horizontal-menu.menu-expanded .navbar .navbar-container {
+    margin-left : 0 !important;
+  }
+  body.horizontal-layout.horizontal-menu.menu-expanded .content, body.horizontal-layout.horizontal-menu.menu-expanded .footer {
+    margin-left : 0 !important;
+  }
+  html.loading .main-menu, html.loading .horizontal-overlay-menu.menu-hide .main-menu, .horizontal-overlay-menu.menu-hide html.loading .main-menu {
+    opacity : 0;
+    -webkit-transform : translate3d(0px, 0, 0);
+       -moz-transform : translate3d(0px, 0, 0);
+            transform : translate3d(0px, 0, 0);
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .horizontal-overlay-menu[data-menu='horizontal-menu'].boxed-layout.menu-open .main-menu {
+    -webkit-transform : translate3d(60px, 0, 0) !important;
+       -moz-transform : translate3d(60px, 0, 0) !important;
+            transform : translate3d(60px, 0, 0) !important;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity : 0;
+  }
+  to {
+    opacity : 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity : 0;
+  }
+  to {
+    opacity : 1;
+  }
+}
+
+@-o-keyframes fadein {
+  from {
+    opacity : 0;
+  }
+  to {
+    opacity : 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity : 0;
+  }
+  to {
+    opacity : 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    opacity : 1;
+  }
+  to {
+    opacity : 0;
+  }
+}
+
+@-moz-keyframes fadeout {
+  from {
+    opacity : 1;
+  }
+  to {
+    opacity : 0;
+  }
+}
+
+@-o-keyframes fadeout {
+  from {
+    opacity : 1;
+  }
+  to {
+    opacity : 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity : 1;
+  }
+  to {
+    opacity : 0;
+  }
+}
+
+.horizontal-layout .main-menu .user-profile {
+  -webkit-background-size : cover;
+          background-size : cover;
+}
+.horizontal-layout .main-menu .user-profile .user-info .user-img {
+  border : 3px solid #FFFFFF;
+  width : 60px;
+  margin-bottom : 0.5rem;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-toggle:after {
+  position : relative;
+  top : -1px;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-menu.arrow {
+  margin-top : 0.5rem;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-menu:before {
+  background : transparent;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-menu .dropdown-item .material-icons {
+  font-size : 1.2rem;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-menu .dropdown-item span.align-middle {
+  font-size : 1rem;
+}
+
+.horizontal-layout .main-menu .main-menu-content .navigation li.active > a {
+  background : #673AB7;
+  color : #FFFFFF;
+}
+
+.horizontal-layout .main-menu.menu-light {
+  border-right : 0;
+}
+.horizontal-layout .main-menu.menu-light .user-profile {
+  background : url('/assets/images/gallery/left-menu-bg.jpg') center center no-repeat;
+}
+
+.horizontal-layout .main-menu.menu-dark .user-profile {
+  background : url('/assets/images/gallery/dark-menu.jpg') center center no-repeat;
+}
+.horizontal-layout .main-menu.menu-dark .user-profile .user-info {
+  background-color : rgba(0, 0, 0, 0.35);
+}
+.horizontal-layout .main-menu.menu-dark .user-profile .user-info .dropdown-menu .dropdown-item .material-icons, .horizontal-layout .main-menu.menu-dark .user-profile .user-info .dropdown-menu .dropdown-item span.align-middle {
+  color : #6B6F82;
+}
+
+.horizontal-layout.horizontal-compact-menu .main-menu.menu-light {
+  border-right : 1px solid #E4E7ED;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .horizontal-layout .form-control, .material-horizontal-layout .form-control {
+    padding : 0.75rem;
+    min-height : 40px;
+  }
+  .horizontal-layout .has-icon-left .form-control, .material-horizontal-layout .has-icon-left .form-control {
+    padding : 0.75rem 2rem;
+    min-height : 40px;
+  }
+}
+
+.horizontal-layout.menu-collapsed .main-menu.menu-light .user-profile .user-img, .horizontal-layout.menu-collapsed .main-menu.menu-dark .user-profile .user-img {
+  width : 40px !important;
+}
+
+.horizontal-layout.menu-collapsed .main-menu.menu-light .user-profile .dropdown-toggle, .horizontal-layout.menu-collapsed .main-menu.menu-dark .user-profile .dropdown-toggle {
+  margin-left : 0 !important;
+}
+
+.horizontal-layout.menu-collapsed .main-menu.menu-light .user-profile div.text-light, .horizontal-layout.menu-collapsed .main-menu.menu-dark .user-profile div.text-light {
+  display : none;
+  white-space : nowrap;
+}
+
+.horizontal-layout.menu-collapsed .main-menu.menu-light .user-profile .user-name, .horizontal-layout.menu-collapsed .main-menu.menu-dark .user-profile .user-name {
+  display : none;
+  white-space : nowrap;
+}
+
+.horizontal-layout.menu-expanded div.text-light {
+  white-space : nowrap;
+}
+
+.horizontal-layout.menu-expanded .user-name {
+  white-space : nowrap;
+}
+
+.horizontal-layout .main-menu .navigation > li > a i {
+  position : relative;
+  top : -2px;
+}
+.horizontal-layout .main-menu .navigation > li > a i.material-icons {
+  font-size : 1.5rem;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu{
+    /* .main-menu-content{
+                  > ul.menu-content{
+                     left: $menu-collapsed-width;
+                     padding-left: 2.2rem;
+                  }
+               } */
+  }
+  body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content > span.menu-title, body.horizontal-layout.horizontal-menu.menu-collapsed .main-menu.main-menu-content a.menu-title {
+    right : auto;
+    left : 60px;
+  }
+}
+
+/*=========================================================================================
+    File Name: horizontal-overlay-menu.scss
+    Description: A overlay style horizontal menu with show and hide support. It support 
+    light & dark version, filpped layout, right side icons, native scroll and borders menu 
+    item seperation.
+    ----------------------------------------------------------------------------------------
+    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+     Version: 3.0
+    Author: PIXINVENT
+    Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+.horizontal-overlay-menu .content {
+  margin-left : 0;
+}
+
+.horizontal-overlay-menu .navbar .navbar-header {
+  float : left;
+  width : 260px;
+}
+
+.horizontal-overlay-menu .navbar.navbar-brand-center .navbar-container {
+  margin-left : 0;
+}
+
+.horizontal-overlay-menu .navbar.navbar-brand-center .navbar-header {
+  float : left;
+  width : auto;
+}
+
+.horizontal-overlay-menu .main-menu, .horizontal-overlay-menu.menu-hide .main-menu {
+  opacity : 0;
+  -webkit-transform : translate3d(0, 0, 0);
+     -moz-transform : translate3d(0, 0, 0);
+          transform : translate3d(0, 0, 0);
+  -webkit-transition : width 0.25s, opacity 0.25s, -webkit-transform 0.25s;
+          transition : width 0.25s, opacity 0.25s, -webkit-transform 0.25s;
+       -o-transition : width 0.25s, opacity 0.25s, -o-transform 0.25s;
+     -moz-transition : width 0.25s, opacity 0.25s, transform 0.25s, -moz-transform 0.25s;
+          transition : width 0.25s, opacity 0.25s, transform 0.25s;
+          transition : width 0.25s, opacity 0.25s, transform 0.25s, -webkit-transform 0.25s, -moz-transform 0.25s, -o-transform 0.25s;
+  width : 260px;
+  left : -260px;
+}
+.horizontal-overlay-menu .main-menu.menu-fixed {
+  height : -webkit-calc(100% - 5rem);
+  height :    -moz-calc(100% - 5rem);
+  height :         calc(100% - 5rem);
+}
+.horizontal-overlay-menu .main-menu.menu-fixed .main-menu-content {
+  height : -webkit-calc(100% - 12rem) !important;
+  height :    -moz-calc(100% - 12rem) !important;
+  height :         calc(100% - 12rem) !important;
+  position : relative;
+}
+.horizontal-overlay-menu .main-menu .navigation .navigation-header .ft-minus, .horizontal-overlay-menu .main-menu .navigation .navigation-header .nav-menu-icon {
+  display : none;
+}
+.horizontal-overlay-menu .main-menu .navigation > li > a > i {
+  font-size : 1.6rem;
+  margin-right : 12px;
+  float : left;
+}
+.horizontal-overlay-menu .main-menu .navigation > li > a > i:before {
+  -webkit-transition : 200ms ease all;
+       -o-transition : 200ms ease all;
+     -moz-transition : 200ms ease all;
+          transition : 200ms ease all;
+}
+.horizontal-overlay-menu .main-menu .navigation li.has-sub > a:not(.mm-next):after {
+  content : '\f112';
+  font-family : 'LineAwesome';
+  font-size : 1rem;
+  display : inline-block;
+  position : absolute;
+  right : 20px;
+  top : 14px;
+  -webkit-transform : rotate(0deg);
+     -moz-transform : rotate(0deg);
+      -ms-transform : rotate(0deg);
+       -o-transform : rotate(0deg);
+          transform : rotate(0deg);
+  transition : -webkit-transform 0.2s ease-in-out;
+}
+.horizontal-overlay-menu .main-menu .navigation li.has-sub .has-sub > a:not(.mm-next):after {
+  top : 8px;
+}
+.horizontal-overlay-menu .main-menu .navigation li.open > a:not(.mm-next):after {
+  -webkit-transform : rotate(90deg);
+     -moz-transform : rotate(90deg);
+      -ms-transform : rotate(90deg);
+       -o-transform : rotate(90deg);
+          transform : rotate(90deg);
+}
+.horizontal-overlay-menu .main-menu .main-menu-footer {
+  bottom : 55px;
+}
+.horizontal-overlay-menu .main-menu .main-menu-footer {
+  width : 260px;
+}
+
+.horizontal-overlay-menu.menu-open .main-menu {
+  opacity : 1;
+  -webkit-transform : translate3d(260px, 0, 0);
+     -moz-transform : translate3d(260px, 0, 0);
+          transform : translate3d(260px, 0, 0);
+  -webkit-transition : width 0.25s, opacity 0.25s, -webkit-transform 0.25s;
+          transition : width 0.25s, opacity 0.25s, -webkit-transform 0.25s;
+       -o-transition : width 0.25s, opacity 0.25s, -o-transform 0.25s;
+     -moz-transition : width 0.25s, opacity 0.25s, transform 0.25s, -moz-transform 0.25s;
+          transition : width 0.25s, opacity 0.25s, transform 0.25s;
+          transition : width 0.25s, opacity 0.25s, transform 0.25s, -webkit-transform 0.25s, -moz-transform 0.25s, -o-transform 0.25s;
+}
+
+.horizontal-overlay-menu.menu-flipped .main-menu {
+  right : -260px;
+  left : inherit;
+}
+
+.horizontal-overlay-menu.menu-flipped .navbar .navbar-container {
+  margin : 0;
+  margin-right : 260px;
+}
+
+.horizontal-overlay-menu.menu-flipped .navbar .navbar-header {
+  float : right;
+}
+
+.horizontal-overlay-menu.menu-flipped.menu-open .main-menu {
+  -webkit-transform : translate3d(-260px, 0, 0);
+     -moz-transform : translate3d(-260px, 0, 0);
+          transform : translate3d(-260px, 0, 0);
+}
+
+.horizontal-overlay-menu footer.footer.fixed-bottom {
+  z-index : 999;
+}
+
+.horizontal-overlay-menu.boxed-layout.menu-open .main-menu {
+  -webkit-transform : translate3d(270px, 0, 0) !important;
+     -moz-transform : translate3d(270px, 0, 0) !important;
+          transform : translate3d(270px, 0, 0) !important;
+}
+
+@media (max-width: 991.98px) {
+  .horizontal-overlay-menu .main-menu .main-menu-footer {
+    bottom : 0;
+  }
+  .horizontal-overlay-menu[data-menu='horizontal-compact-menu'].boxed-layout.menu-open .main-menu {
+    -webkit-transform : translate3d(120px, 0, 0) !important;
+       -moz-transform : translate3d(120px, 0, 0) !important;
+            transform : translate3d(120px, 0, 0) !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .horizontal-overlay-menu.boxed-layout.menu-open .main-menu {
+    -webkit-transform : translate3d(260px, 0, 0) !important;
+       -moz-transform : translate3d(260px, 0, 0) !important;
+            transform : translate3d(260px, 0, 0) !important;
+  }
+}
+
+.horizontal-layout .main-menu .user-profile {
+  -webkit-background-size : cover;
+          background-size : cover;
+}
+.horizontal-layout .main-menu .user-profile .user-info .user-img {
+  border : 3px solid #FFFFFF;
+  width : 60px;
+  margin-bottom : 0.5rem;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-toggle:after {
+  position : relative;
+  top : -1px;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-menu.arrow {
+  margin-top : 0.5rem;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-menu:before {
+  background : transparent;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-menu .dropdown-item .material-icons {
+  font-size : 1.2rem;
+}
+.horizontal-layout .main-menu .user-profile .user-info .dropdown-menu .dropdown-item span.align-middle {
+  font-size : 1rem;
+}
+
+.horizontal-layout .main-menu .main-menu-content .navigation li.active > a {
+  background : #673AB7;
+  color : #FFFFFF;
+}
+
+.horizontal-layout .main-menu.menu-light {
+  border-right : 0;
+}
+.horizontal-layout .main-menu.menu-light .user-profile {
+  background : url('/assets/images/gallery/left-menu-bg.jpg') center center no-repeat;
+}
+
+.horizontal-layout .main-menu.menu-dark .user-profile {
+  background : url('/assets/images/gallery/dark-menu.jpg') center center no-repeat;
+}
+.horizontal-layout .main-menu.menu-dark .user-profile .user-info {
+  background-color : rgba(0, 0, 0, 0.35);
+}
+.horizontal-layout .main-menu.menu-dark .user-profile .user-info .dropdown-menu .dropdown-item .material-icons, .horizontal-layout .main-menu.menu-dark .user-profile .user-info .dropdown-menu .dropdown-item span.align-middle {
+  color : #6B6F82;
+}
+
+.horizontal-layout.horizontal-compact-menu .main-menu.menu-light {
+  border-right : 1px solid #E4E7ED;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .horizontal-layout .form-control, .material-horizontal-layout .form-control {
+    padding : 0.75rem;
+    min-height : 40px;
+  }
+  .horizontal-layout .has-icon-left .form-control, .material-horizontal-layout .has-icon-left .form-control {
+    padding : 0.75rem 2rem;
+    min-height : 40px;
+  }
+}
+
+.horizontal-layout.horizontal-overlay-menu .main-menu .navigation > li > a i {
+  position : relative;
+  top : 0.7rem;
+}
+.horizontal-layout.horizontal-overlay-menu .main-menu .navigation > li > a i.material-icons {
+  font-size : 1.5rem;
 }

@@ -2,7 +2,7 @@
 	File Name: drag-drop.js
 	Description: drag & drop elements using dragula js
 	--------------------------------------------------------------------------------------
-	Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+	Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
 	Version: 3.0
 	Author: Pixinvent
 	Author URL: hhttp://www.themeforest.net/user/pixinvent

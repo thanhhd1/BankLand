@@ -2,7 +2,7 @@
     File Name: data-color.js
     Description: c3 data color chart
     ----------------------------------------------------------------------------------------
-    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+    Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
    Version: 3.0
     Author: GeeksLabs
     Author URL: http://www.themeforest.net/user/geekslabs

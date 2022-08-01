@@ -2,7 +2,7 @@
 	File Name: editor-quill.js
 	Description: Quill is a modern rich text editor built for compatibility and extensibility.
 	----------------------------------------------------------------------------------------
-	Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+	Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
 	Version: 3.0
 	Author: GeeksLabs
 	Author URL: http://www.themeforest.net/user/geekslabs

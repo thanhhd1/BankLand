@@ -2,7 +2,7 @@
     File Name: combo-bar-line-data-label.js
     Description: Chartjs combo bar line data label chart
     ----------------------------------------------------------------------------------------
-    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+    Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
    Version: 3.0
     Author: PIXINVENT
     Author URL: http://www.themeforest.net/user/pixinvent

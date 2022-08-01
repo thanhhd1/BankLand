@@ -2,7 +2,7 @@
     File Name: wormhole.js
     Description: echarts wormhole chart
     ----------------------------------------------------------------------------------------
-    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+    Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
    Version: 3.0
     Author: PIXINVENT
     Author URL: http://www.themeforest.net/user/pixinvent

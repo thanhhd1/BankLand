@@ -2,7 +2,7 @@
   File Name: form-typeahead.js
   Description: The Typeahead plugin from Twitter's Bootstrap 2 ready to use with Bootstrap 4
   ------------------------------------------------------------------------------------------
-  Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+  Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
  Version: 3.0
   Author: Pixinvent
   Author URL: hhttp://www.themeforest.net/user/pixinvent

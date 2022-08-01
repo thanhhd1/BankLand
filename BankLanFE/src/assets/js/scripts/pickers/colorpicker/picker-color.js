@@ -2,7 +2,7 @@
     File Name: picker-color.js
     Description: Bootstrap Color Picker , minicolors , spectrum js
     ----------------------------------------------------------------------------------------
-    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+    Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
    Version: 3.0
     Author: GeeksLabs
     Author URL: http://www.themeforest.net/user/geekslabs

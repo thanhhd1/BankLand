@@ -3,7 +3,7 @@
 	Description: Tooltips are an updated version, which don’t rely on images, 
 				use CSS3 for animations, and data-attributes for local title storage.
 	----------------------------------------------------------------------------------------
-	Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+	Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
 	Version: 3.0
 	Author: Pixinvent
 	Author URL: hhttp://www.themeforest.net/user/pixinvent

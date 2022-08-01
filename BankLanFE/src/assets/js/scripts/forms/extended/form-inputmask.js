@@ -2,7 +2,7 @@
 	File Name: form-inputmask.js
 	Description: An inputmask helps the user with the input by ensuring a predefined format.
 	----------------------------------------------------------------------------------------
-	Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+	Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
 	Version: 3.0
 	Author: Pixinvent
 	Author URL: hhttp://www.themeforest.net/user/pixinvent

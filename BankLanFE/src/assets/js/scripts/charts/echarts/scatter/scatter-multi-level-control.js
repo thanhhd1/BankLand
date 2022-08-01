@@ -2,7 +2,7 @@
     File Name: scatter-multilevel-control.js
     Description: echarts scatter multilevel control chart
     ----------------------------------------------------------------------------------------
-    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+    Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
    Version: 3.0
     Author: Pixinvent
     Author URL: hhttp://www.themeforest.net/user/pixinvent

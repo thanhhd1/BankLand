@@ -181,7 +181,7 @@ function getCrossOrigin(crossOrigin) {
 }
 
 function getImageSize(image, callback) {
-  // Modern browsers (ignore Safari, #120 & #509)
+  // Mega Land browsers (ignore Safari, #120 & #509)
   if (image.naturalWidth && !IS_SAFARI_OR_UIWEBVIEW) {
     callback(image.naturalWidth, image.naturalHeight);
     return;

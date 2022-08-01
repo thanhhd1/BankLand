@@ -28,7 +28,7 @@ tinymce.PluginManager.add('fullscreen', function(editor) {
 			h = body.offsetHeight;
 		}
 
-		// Modern browsers
+		// Mega Land browsers
 		if (win.innerWidth && win.innerHeight) {
 			w = win.innerWidth;
 			h = win.innerHeight;

@@ -3,7 +3,7 @@
   Description: Menu navigation, custom scrollbar, hover scroll bar, multilevel menu
   initialization and manipulations
   ----------------------------------------------------------------------------------------
-  Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+  Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
  Version: 3.0
   Author: Pixinvent
   Author URL: hhttp://www.themeforest.net/user/pixinvent

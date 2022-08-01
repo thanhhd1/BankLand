@@ -1005,7 +1005,7 @@ select.form-control {
     Description: Contain header navigation bar, vertical main navigation bar and
     horiznotal main navigation bar related SCSS.
     ----------------------------------------------------------------------------------------------
-    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+    Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
      Version: 3.0
     Author: PIXINVENT
     Author URL: http://www.themeforest.net/user/pixinvent
@@ -1196,7 +1196,7 @@ select.form-control {
   }
 }
 
-/* Modern menu For md screen*/
+/* Mega Land menu For md screen*/
 @media (max-width: 991.98px) {
   [data-menu='vertical-menu-modern'] .header-navbar .navbar-header {
     width : 100% !important;
@@ -2993,7 +2993,7 @@ body.vertical-layout.menu-open .main-menu .navigation .navigation-header .la-ell
   File Name: progress.scss
   Description: Extended bootstrap progress bar scss.
   ----------------------------------------------------------------------------------------
-  Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+  Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
    Version: 3.0
   Author: PIXINVENT
   Author URL: http://www.themeforest.net/user/pixinvent
@@ -3035,7 +3035,7 @@ body.vertical-layout.menu-open .main-menu .navigation .navigation-header .la-ell
 	File Name: list-group.scss
 	Description: Contain list item, list group related extended SCSS.
 	----------------------------------------------------------------------------------------------
-	Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+	Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
 	 Version: 3.0
 	Author: PIXINVENT
 	Author URL: http://www.themeforest.net/user/pixinvent

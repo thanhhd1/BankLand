@@ -3,7 +3,7 @@
     Description: Select2 is a jQuery-based replacement for select boxes.
     It supports searching, remote data sets, and pagination of results.
     ----------------------------------------------------------------------------------------
-    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+    Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
    Version: 3.0
     Author: Pixinvent
     Author URL: hhttp://www.themeforest.net/user/pixinvent

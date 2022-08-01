@@ -698,7 +698,7 @@ $.extend( $.validator, {
 
 			if ( type === "file" ) {
 
-				// Modern browser (chrome & safari)
+				// Mega Land browser (chrome & safari)
 				if ( val.substr( 0, 12 ) === "C:\\fakepath\\" ) {
 					return val.substr( 12 );
 				}

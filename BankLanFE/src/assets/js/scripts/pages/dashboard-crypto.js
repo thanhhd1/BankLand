@@ -2,7 +2,7 @@
     File Name: dashboard-crypto.js
     Description: intialize dashboard crypto
     ----------------------------------------------------------------------------------------
-    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+    Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
    Version: 3.0
     Author: GeeksLabs
     Author URL: http://www.themeforest.net/user/geekslabs

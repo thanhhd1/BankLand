@@ -2,7 +2,7 @@
 	File Name: sweet-alerts.js
 	Description: A beautiful replacement for javascript alerts
 	----------------------------------------------------------------------------------------
-	Item Name: Modern Admin - Responsive Admin Theme
+	Item Name: Mega Land Admin - Responsive Admin Theme
 	Version: 3.0
 	Author: Pixinvent
 	Author URL: hhttp://www.themeforest.net/user/pixinvent

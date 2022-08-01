@@ -2,7 +2,7 @@
     File Name: area-stacked-stepped.js
     Description: google area stacked stepped chart
     ----------------------------------------------------------------------------------------
-    Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+    Item Name: Mega Land Admin - Clean Bootstrap 4 Dashboard HTML Template
    Version: 3.0
     Author: PIXINVENT
     Author URL: http://www.themeforest.net/user/pixinvent
@@ -22,7 +22,7 @@ function drawAreaStackedStepped() {
 
     // Create the data table.
     var data = google.visualization.arrayToDataTable([
-        ['Year',  'Colonial', 'Victorian', 'Modern', 'Contemporary'],
+        ['Year',  'Colonial', 'Victorian', 'Mega Land', 'Contemporary'],
         ['2011',      5.2,        3.6,        2.8,         2       ],
         ['2012',      5.6,          4,        2.8,         3       ],
         ['2013',      7.2,        2.2,        2.2,         6       ],

@@ -1,3 +1,11 @@
 .bg-info-c{
     background-color: #1e9ff2;
 }
+
+.fixed-top-50{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 50;
+}

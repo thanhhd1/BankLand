@@ -39,7 +39,7 @@ export class AccountProfileComponent extends BaseComponent implements OnInit {
     super(authService);
     activeRouter.params.subscribe(r => {
       this.id = r['{id}'];
-      this.getEntity();
+      //this.getEntity();
     });
   }
 
@@ -58,19 +58,19 @@ export class AccountProfileComponent extends BaseComponent implements OnInit {
     }
   }
 
-  getEntity() {
-    this.service.Get(this.id).subscribe(
-      r => {
-        this.model = r;
-      },
-      error => {
-        this.dialog.showSwalErrorAlert(
-          `Cập Nhật Thông Tin Cái Nhân`,
-          MessageConstant.FAILURE_REQUEST
-        );
-      }
-    );
-  }
+  // getEntity() {
+  //   this.service.Get(this.id).subscribe(
+  //     r => {
+  //       this.model = r;
+  //     },
+  //     error => {
+  //       this.dialog.showSwalErrorAlert(
+  //         `Cập Nhật Thông Tin Cái Nhân`,
+  //         MessageConstant.FAILURE_REQUEST
+  //       );
+  //     }
+  //   );
+  // }
 
   updateCurrentUser() {
     this.service.GetCurrent().subscribe(r => {
@@ -80,37 +80,37 @@ export class AccountProfileComponent extends BaseComponent implements OnInit {
     });
   }
 
-  save() {
-    if (this.Submitting) return;
-    this.Submitting = true;
-    this.service.Edit(this.model).subscribe(
-      result => {
-        if (result) {
-          this.updateCurrentUser();
-          this.Submitting = false;
-          this.dialog.showSwalSuccesAlert(
-            `Cập Nhật Thông Tin Cái Nhân`,
-            MessageConstant.EDIT_SCCCESS_CONST
-          );
-          this.closeModal.emit(true);
-          if (this.currentUser.Role === 'Administrator') {
-            this.router.navigate([`/management/users`]);
-          } else {
-            this.router.navigate([`/management/dashboard`]);
-          }
-        }
-      },
-      error => {
-        this.Submitting = false;
-        var strMessage =
-          error && error.error ? error.error : MessageConstant.FAILURE_REQUEST;
-        this.dialog.showSwalErrorAlert(
-          `Cập Nhật Thông Tin Cái Nhân`,
-          strMessage
-        );
-      }
-    );
-  }
+  // save() {
+  //   if (this.Submitting) return;
+  //   this.Submitting = true;
+  //   this.service.Edit(this.model).subscribe(
+  //     result => {
+  //       if (result) {
+  //         this.updateCurrentUser();
+  //         this.Submitting = false;
+  //         this.dialog.showSwalSuccesAlert(
+  //           `Cập Nhật Thông Tin Cái Nhân`,
+  //           MessageConstant.EDIT_SCCCESS_CONST
+  //         );
+  //         this.closeModal.emit(true);
+  //         if (this.currentUser.Role === 'Administrator') {
+  //           this.router.navigate([`/management/users`]);
+  //         } else {
+  //           this.router.navigate([`/management/dashboard`]);
+  //         }
+  //       }
+  //     },
+  //     error => {
+  //       this.Submitting = false;
+  //       var strMessage =
+  //         error && error.error ? error.error : MessageConstant.FAILURE_REQUEST;
+  //       this.dialog.showSwalErrorAlert(
+  //         `Cập Nhật Thông Tin Cái Nhân`,
+  //         strMessage
+  //       );
+  //     }
+  //   );
+  // }
 
   cancel() {
     if (this.currentUser.Role === 'Administrator') {

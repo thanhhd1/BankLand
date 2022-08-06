@@ -1,132 +1,168 @@
 
     <div class="content-body">
-        <div id="crypto-stats-3" class="row">
-            <div class="col-xl-3 col-12">
-                <div class="card crypto-card-3 pull-up">
-                    <div class="card-content">
-                        <div class="card-body pb-0">
-                            <div class="row">
-                                <div class="col-5">
-                                    <i class="material-icons blue font-large-4">save</i>
-                                    <!-- <i class='material-icons' style="color: #142dbb; font-size: 24px;">trending_up</i>
-                                    <i class='material-icons'>monetization_on</i>
-                                    <i class='material-icons'>account_balance_wallet</i> -->
-                                </div>
-                                <div class="col-7 text-right font-large-5">
-                                    <h4>$944</h4>
-                                    <h6 class="success darken-4">12% <i class="la la-arrow-up"></i></h6>
-                                </div>
-                                <div class="col-12 text-left fo" style="padding-top: 15px;">
-                                    <h4>Tổng lợi nhuận</h4>
-                                    <h6 class="success darken-4">100,000 VND <i class="la la-arrow-up"></i></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-12"><canvas id="btc-chartjs" class="height-75"></canvas></div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-12">
-                <div class="card crypto-card-3 pull-up">
-                    <div class="card-content">
-                        <div class="card-body pb-0">
-                            <div class="row">
-                                <div class="col-5">
-                                    <i class="material-icons teal font-large-4">trending_up</i>
-                                </div>
-                                <div class="col-7 text-right font-large-5">
-                                    <h4>$5,400</h4>
-                                    <h6 class="success darken-4">20% <i class="la la-arrow-up"></i></h6>
-                                </div>
-                                <div class="col-12 text-left fo" style="padding-top: 15px;">
-                                    <h4>Số gói đầu tư</h4>
-                                    <h6 class="success darken-4">10 gói <i class="la la-arrow-up"></i></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-12">
-                <div class="card crypto-card-3 pull-up">
-                    <div class="card-content">
-                        <div class="card-body pb-0">
-                            <div class="row">
-                                <div class="col-5">
-                                    <i class="material-icons success font-large-4">monetization_on</i>
-                                </div>
-                                <div class="col-7 text-right font-large-5">
-                                    <h4>$944</h4>
-                                    <h6 class="success darken-4">15% <i class="la la-arrow-up"></i></h6>
-                                </div>
-                                <div class="col-12 text-left fo" style="padding-top: 15px;">
-                                    <h4>Tổng nạp</h4>
-                                    <h6 class="success darken-4">100,000 VND <i class="la la-arrow-up"></i></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-12">
-              <div class="card crypto-card-3 pull-up">
-                  <div class="card-content">
-                    <div class="card-body pb-0">
-                        <div class="row">
-                            <div class="col-5">
-                                <i class="material-icons primary font-large-4">account_balance_wallet</i>
-                            </div>
-                            <div class="col-7 text-right font-large-5">
-                                <h4>$944</h4>
-                                <h6 class="success darken-4">22% <i class="la la-arrow-up"></i></h6>
-                            </div>
-                            <div class="col-12 text-left fo" style="padding-top: 15px;">
-                                <h4>Tổng rút</h4>
-                                <h6 class="success darken-4">100,000 VND <i class="la la-arrow-up"></i></h6>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-        <!-- Candlestick Multi Level Control Chart -->
-
-        <!-- Slaes & Purchase Order -->
-        <div class="row">
-            <div class="col-12 col-xl-12">
+          <!-- Trade History & Place Order -->
+          <div class="row">
+            <div class="col-12 col-xl-4">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Lợi nhuận hàng tháng</h4>
-
+                        <h4 class="card-title">Nạp Tiền</h4>
                         <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                         <div class="heading-elements">
-                            <ul class="list-inline mb-0">
-                                <li class="text-center mr-4">
-                                    <h6 class="text-muted">Last price</h6>
-                                    <p class="text-bold-600 mb-0">$ 11916.9</p>
-                                </li>
-                                <li class="text-center mr-4">
-                                    <h6 class="text-muted">Daily change</h6>
-                                    <p class="text-bold-600 mb-0">$ 283.1</p>
-                                </li>
-                                <li class="text-center">
-                                    <h6 class="text-muted">24h volume</h6>
-                                    <p class="text-bold-600 mb-0"><i class="cc BTC-alt" title="BTC"></i> 1029.1906 BTC</p>
-                                </li>
-                            </ul>
+                            <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn round btn-sm btn-outline-info active">
+                                    <input type="radio" name="options" id="option1" checked> Market
+                                </label>
+                                <label class="btn round btn-sm btn-outline-info">
+                                    <input type="radio" name="options" id="option2"> Yours
+                                </label>
+                            </div> -->
+                            <i _ngcontent-ydw-c7="" class="la la-arrow-down"></i>
                         </div>
                     </div>
-                    <div class="card-content collapse show">
-                        <div class="card-body pt-0">
-                            <div id="btc-candlestick-control" class="height-350 mt-2"></div>
+                    <div class="card-content">
+                        <div class="table-responsive mt-1">
+                            <table class="table table-xs">
+                                <thead>
+                                    <tr>
+                                        <th>Số Tiền nạp($)</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="danger">11901.15</td>
+                                        <td><i class="cc BTC-alt"></i> 0.548</td>
+                                        <td>11:21:25</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11901.15</td>
+                                        <td><i class="cc BTC-alt"></i> 0.548</td>
+                                        <td>11:21:25</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="success">11903.45</td>
+                                        <td><i class="cc BTC-alt"></i> 0.587</td>
+                                        <td>11:21:01</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11895.50</td>
+                                        <td><i class="cc BTC-alt"></i> 5.125</td>
+                                        <td>11:20:15</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11889.56</td>
+                                        <td><i class="cc BTC-alt"></i> 0.894</td>
+                                        <td>11:20:03</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="success">11885.69</td>
+                                        <td><i class="cc BTC-alt"></i> 0.754</td>
+                                        <td>11:19:55</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11891.12</td>
+                                        <td><i class="cc BTC-alt"></i> 0.889</td>
+                                        <td>11:19:15</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11889.88</td>
+                                        <td><i class="cc BTC-alt"></i> 0.654</td>
+                                        <td>11:18:18</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="success">11881.15</td>
+                                        <td><i class="cc BTC-alt"></i> 1.254</td>
+                                        <td>11:18:01</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="success">11875.75</td>
+                                        <td><i class="cc BTC-alt"></i> 0.885</td>
+                                        <td>11:17:25</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Lịch Sử Nạp</h4>
+                        <div class="heading-elements">
+                            <i _ngcontent-ydw-c7="" class="la la-arrow-down"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-responsive mt-1">
+                            <table class="table table-xs">
+                                <thead>
+                                    <tr>
+                                        <th>Số Tiền nạp($)</th>
+                                        <th>Loại tiền</th>
+                                        <th>Ngày nạp</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="danger">11901.15</td>
+                                        <td><i class="cc BTC-alt"></i>Coin</td>
+                                        <td>11:21:25</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11901.15</td>
+                                        <td><i class="cc ETH-alt"></i>Coin</td>
+                                        <td>11:21:25</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="success">11903.45</td>
+                                        <td><i class="cc BTC-alt"></i>Coin</td>
+                                        <td>11:21:01</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11895.50</td>
+                                        <td><i class="cc BTC-alt"></i> Coin</td>
+                                        <td>11:20:15</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11889.56</td>
+                                        <td>VND</td>
+                                        <td>11:20:03</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="success">11885.69</td>
+                                        <td>VND</td>
+                                        <td>11:19:55</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11891.12</td>
+                                        <td>VND</td>
+                                        <td>11:19:15</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="danger">11889.88</td>
+                                        <td>VND</td>
+                                        <td>11:18:18</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="success">11881.15</td>
+                                        <td><i class="cc BTC-alt"></i>Coin</td>
+                                        <td>11:18:01</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="success">11875.75</td>
+                                        <td><i class="cc BTC-alt"></i> Coin</td>
+                                        <td>11:17:25</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!--/ Trade History & Place Order -->
 
         
 

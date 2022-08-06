@@ -8,5 +8,9 @@ import { CommonDialogService } from 'src/app/modules/common/services/dialog.serv
 })
 export class InvertorComponent implements OnInit {
   constructor(private dialog: CommonDialogService) {}
-  ngOnInit() {}
+  ngOnInit() {
+    var listInvertor =[
+      {"price": 100000, "InterestRate6T": ""}
+    ]
+  }
 }

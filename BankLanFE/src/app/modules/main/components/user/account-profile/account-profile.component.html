@@ -89,176 +89,187 @@
   <!-- Slaes & Purchase Order -->
   <div class="content-body">
   <!-- <section id="horizontal-form-layouts"> -->
-  <div class="row">
-    <div class="col-12 col-xl-14">
-        <div id="accordionCrypto" role="tablist" aria-multiselectable="true">
-            <div class="card accordion collapse-icon accordion-icon-rotate">
-
-                <a id="heading31" data-toggle="collapse" href="#accordionBTC" aria-expanded="true" aria-controls="accordionBTC" class="card-header bg-info p-1 bg-lighten-1">
-                    <div class="card-title lead white">Thông tin cá nhân & Thông tin ngân hàng</div>
-                </a>
-                <div id="accordionBTC" role="tabpanel" data-parent="#accordionCrypto" aria-labelledby="heading31" class=" collapse show" aria-expanded="true">
-                    <div class="card-content">
-                        <div class="card-body p-0">
-                            <div class="media-list list-group">
-                                <div class="list-group-item list-group-item-action media p-1">
-                                    <a class="media-link" href="#">
-                                        <div class="media-left">
-                                            <p class="text-bold-600 m-0">BTC/USD</p>
-                                            <p class="font-small-2 text-muted m-0">24h Change</p>
-                                            <p class="font-small-2 text-muted m-0">24h Volume</p>
+ <!-- Trade History & Place Order -->
+ <div class="row">
+  <div class="col-12 col-xl-12">
+      <div class="card">
+          <div class="card-header">
+              <h4 class="card-title" style="color: #673ab7 !important; font-weight:bold;">Chỉnh Sửa Thông tin Cái nhân</h4>
+              <div class="heading-elements">
+                  <h6 class="danger">Fee: 0.2%</h6>
+              </div>
+          </div>
+          <div class="card-content">
+              <div class="card-body">
+                  <ul class="nav nav-tabs nav-underline no-hover-bg">
+                      <li class="nav-item">
+                          <a class="nav-link active" id="base-limit" data-toggle="tab" aria-controls="limit" href="#limit" aria-expanded="true">Hồ sơ & Bank </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" id="base-market" data-toggle="tab" aria-controls="market" href="#market" aria-expanded="false">Tài Khoản</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" id="base-stop-limit" data-toggle="tab" aria-controls="stop-limit" href="#stop-limit" aria-expanded="false">Bảo Mật Ví & KYC</a>
+                      </li>
+                  </ul>
+                  <div class="tab-content px-1 pt-1">
+                      <div role="tabpanel" class="tab-pane active" id="limit" aria-expanded="true" aria-labelledby="base-limit">
+                        <form class="form form-horizontal">
+                          <div class="row">
+                              <div class="col-12 col-xl-6 border-right-blue-grey border-right-lighten-4 pr-2">
+                                  <div class="row my-2">
+                                      <div class="col-12">
+                                          <h5 class="text-bold-600 mb-0">Hồ Sơ</h5>
+                                      </div>
+                                      <!-- <div class="col-8 text-right">
+                                          <p class="text-muted mb-0">hoangduythanh0@gmail.com</p>
+                                      </div> -->
+                                  </div>
+                                  <!-- <form class="form form-horizontal"> -->
+                                      <div class="form-body">
+                                          <div class="form-group">
+                                              <label class="col-md-3 col-form-label" for="btc-limit-buy-price">Email</label>
+                                              <div class="col-md-9">
+                                                  <input type="email" id="btc-limit-buy-price" class="form-control" placeholder="hoangduythanh0@mail.com" name="btc-limit-buy-price">
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label class="col-md-3 col-form-label" for="btc-limit-buy-amount">Họ tên</label>
+                                              <div class="col-md-9">
+                                                  <input type="text" id="btc-limit-buy-amount" class="form-control" placeholder="0.026547 BTC" name="btc-limit-buy-amount">
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-md-3 col-form-label" for="btc-limit-buy-amount1">Số điện thoại</label>
+                                            <div class="col-md-9">
+                                                <input type="tel" id="btc-limit-buy-amount1" class="form-control" placeholder="098976789" name="btc-limit-buy-amount1">
+                                            </div>
                                         </div>
-                                        <div class="media-body text-right">
-                                            <p class="text-bold-600 m-0">11916.9</p>
-                                            <p class="font-small-2 text-muted m-0 success">283.1 USD (+2.33%)</p>
-                                            <p class="font-small-2 text-muted m-0 text-bold-600">1029.1906 BTC</p>
+                                          
+                                      </div>
+                                  <!-- </form> -->
+                              </div>
+                              <div class="col-12 col-xl-6 pl-2 p-0">
+                                  <div class="row my-2">
+                                      <div class="col-12">
+                                          <h5 class="text-bold-600 mb-0">Tài Khoản Ngân Hàng</h5>
+                                      </div>
+                                  </div>
+                                  <!-- <form class="form form-horizontal"> -->
+                                      <div class="form-body">
+                                          <div class="form-group">
+                                              <label class="col-md-3 col-form-labtc-pricbel" for="btc-price">Ngân hàng</label>
+                                              <div class="col-md-9">
+                                                  <input type="text" id="btc-price" class="form-control" placeholder="Nông Nghiệp và phát triển nông thôn" name="btc-limit-sell-price">
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label class="col-md-3 col-form-label" for="btc-limit-sell-amount">Số tài khoản</label>
+                                              <div class="col-md-9">
+                                                  <input type="text" id="btc-limit-sell-amount" class="form-control" placeholder="000937849823" name="btc-limit-sell-amount">
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-md-3 col-form-label" for="btc-limit-sell-amount1">Họ tên chủ TK</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="btc-limit-sell-amount1" class="form-control" placeholder="Hoang Duy Thanh" name="btc-limit-sell-amount1">
+                                            </div>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="list-group-item list-group-item-action media p-1 bg-info bg-lighten-5">
-                                    <a class="media-link" href="#">
-                                        <div class="media-left">
-                                            <p class="text-bold-600 m-0">BTC/EUR</p>
-                                            <p class="font-small-2 text-muted m-0">24h Change</p>
-                                            <p class="font-small-2 text-muted m-0">24h Volume</p>
-                                        </div>
-                                        <div class="media-body text-right">
-                                            <p class="text-bold-600 m-0">9213.3</p>
-                                            <p class="font-small-2 text-muted m-0 success">56.1 EUR (+5.52%)</p>
-                                            <p class="font-small-2 text-muted m-0 text-bold-600">560.1906 BTC</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="list-group-item list-group-item-action media p-1 border-bottom-0">
-                                    <a class="media-link" href="#">
-                                        <div class="media-left">
-                                            <p class="text-bold-600 m-0">BTC/GBP</p>
-                                            <p class="font-small-2 text-muted m-0">24h Change</p>
-                                            <p class="font-small-2 text-muted m-0">24h Volume</p>
-                                        </div>
-                                        <div class="media-body text-right">
-                                            <p class="text-bold-600 m-0">8015.1</p>
-                                            <p class="font-small-2 text-muted m-0 danger">-183.1 USD (-1.33%)</p>
-                                            <p class="font-small-2 text-muted m-0 text-bold-600">320.1906 BTC</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                                          <!-- <div class="form-actions pb-0">
+                                              <button type="submit" class="btn round btn-danger btn-block btn-glow">
+                                                  Sell BTC </button>
+                                          </div> -->
+                                      </div>
+                                  <!-- </form> -->
+                              </div>
+                          </div>
+                          <div class="form-actions pb-0 row">
+                            <div class="col-3"></div>
+                            <button type="submit" class="btn round btn-success btn-block btn-glow col-6">
+                                Cập Nhật</button>
+                            <div class="col-3"></div>
                         </div>
-                    </div>
-                </div>
-
-                <a id="heading32" class="card-header bg-info p-1 bg-lighten-1 my-1" data-toggle="collapse" href="#accordionETH" aria-expanded="false" aria-controls="accordionETH">
-                    <div class="card-title lead white collapsed">Đổi mật khẩu</div>
-                </a>
-                <div id="accordionETH" role="tabpanel" data-parent="#accordionCrypto" aria-labelledby="heading32" class=" collapse" aria-expanded="false">
-                    <div class="card-content">
-                        <div class="card-body p-0">
-                            <div class="media-list list-group">
-                                <div class="list-group-item list-group-item-action media p-1">
-                                    <a class="media-link" href="#">
-                                        <div class="media-left">
-                                            <p class="text-bold-600 m-0">ETH/USD</p>
-                                            <p class="font-small-2 text-muted m-0">24h Change</p>
-                                            <p class="font-small-2 text-muted m-0">24h Volume</p>
+                        </form>
+                      </div>
+                      <div class="tab-pane" id="market" aria-labelledby="base-market">
+                          <div class="row">
+                              <div class="col-12 col-xl-12 border-right-blue-grey border-right-lighten-4">
+                                  <div class="row my-2">
+                                      <div class="col-md-12">
+                                          <h5 class="text-bold-600 mb-0">Cập nhật thông tin tài khoản</h5>
+                                      </div>
+                                      <!-- <div class="col-8 text-right">
+                                          <p class="text-muted mb-0">USD Balance: $ 5000.00</p>
+                                      </div> -->
+                                  </div>
+                                  <form class="form form-horizontal">
+                                      <div class="form-body">
+                                          <div class="form-group">
+                                              <label class="col-md-3 col-form-label" for="btc-market-buy-price">Mật khẩu cũ</label>
+                                              <div class="col-md-12">
+                                                  <input type="password" disabled id="btc-market-buy-price" class="form-control" placeholder="*********" name="btc-market-buy-price">
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label class="col-md-3 col-form-label" for="btc-market-buy-amount">Mật khẩu mới</label>
+                                              <div class="col-md-12">
+                                                  <input type="password" id="btc-market-buy-amount" class="form-control" placeholder="*********" name="btc-market-buy-amount">
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="col-md-3 col-form-label" for="btc-market-buy-amount1">Xác nhận mật khẩu</label>
+                                            <div class="col-md-12">
+                                                <input type="password" id="btc-market-buy-amount1" class="form-control" placeholder="*********" name="btc-market-buy-amount1">
+                                            </div>
                                         </div>
-                                        <div class="media-body text-right">
-                                            <p class="text-bold-600 m-0">11916.9</p>
-                                            <p class="font-small-2 text-muted m-0 success">283.1 USD (+2.33%)</p>
-                                            <p class="font-small-2 text-muted m-0 text-bold-600">1029.1906 ETH</p>
-                                        </div>
-                                    </a>
+                                        <div class="form-actions pb-0 row">
+                                          <div class="col-3"></div>
+                                          <button type="submit" class="btn round btn-success btn-block btn-glow col-6">
+                                              Cập Nhật</button>
+                                          <div class="col-3"></div>
+                                      </div>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="tab-pane" id="stop-limit" aria-labelledby="base-stop-limit">
+                      <div class="row">
+                        <div class="col-12 col-xl-12 border-right-blue-grey border-right-lighten-4">
+                          <div class="row my-2">
+                              <div class="col-1">
+                                <i class="material-icons blue font-large-4">save</i>
+                              </div>
+                              <div class="col-11 text-left" style="padding-top: 10px;">
+                                <h5 class="text-bold-600 mb-0">Ví</h5>
+                                <p class="text-muted mb-0">Số dư: $ 5000.00</p>
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+                          <div class="row">
+                              <div class="col-12 col-xl-6 border-right-blue-grey border-right-lighten-4">
+                                  
+                                  <div class="form-actions pb-0">
+                                    <button type="submit" class="btn round btn-success btn-block btn-glow">
+                                        Gửi KYC </button>
                                 </div>
-                                <div class="list-group-item list-group-item-action media p-1">
-                                    <a class="media-link" href="#">
-                                        <div class="media-left">
-                                            <p class="text-bold-600 m-0">ETH/EUR</p>
-                                            <p class="font-small-2 text-muted m-0">24h Change</p>
-                                            <p class="font-small-2 text-muted m-0">24h Volume</p>
-                                        </div>
-                                        <div class="media-body text-right">
-                                            <p class="text-bold-600 m-0">9213.3</p>
-                                            <p class="font-small-2 text-muted m-0 success">56.1 EUR (+5.52%)</p>
-                                            <p class="font-small-2 text-muted m-0 text-bold-600">560.1906 ETH</p>
-                                        </div>
-                                    </a>
+                              </div>
+                              <div class="col-12 col-xl-6 pl-2 p-0">
+                                  <div class="form-actions pb-0">
+                                    <button type="submit" class="btn round btn-danger btn-block btn-glow">
+                                        Kích hoạt xác thực 2 lớp </button>
                                 </div>
-                                <div class="list-group-item list-group-item-action media p-1 border-bottom-0">
-                                    <a class="media-link" href="#">
-                                        <div class="media-left">
-                                            <p class="text-bold-600 m-0">ETH/GBP</p>
-                                            <p class="font-small-2 text-muted m-0">24h Change</p>
-                                            <p class="font-small-2 text-muted m-0">24h Volume</p>
-                                        </div>
-                                        <div class="media-body text-right">
-                                            <p class="text-bold-600 m-0">8015.1</p>
-                                            <p class="font-small-2 text-muted m-0 danger">-183.1 USD (-1.33%)</p>
-                                            <p class="font-small-2 text-muted m-0 text-bold-600">320.1906 ETH</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a id="heading33" class="card-header bg-info p-1 bg-lighten-1" data-toggle="collapse" href="#accordionXRP" aria-expanded="false" aria-controls="accordionXRP">
-                    <div class="card-title lead white collapsed">Quản lý ví & KYC bảo mật</div>
-                </a>
-                <div id="accordionXRP" role="tabpanel" data-parent="#accordionCrypto" aria-labelledby="heading33" class=" collapse" aria-expanded="false">
-                    <div class="card-content">
-                        <div class="card-body p-0">
-                            <div class="media-list list-group">
-                                <div class="list-group-item list-group-item-action media p-1">
-                                    <a class="media-link" href="#">
-                                        <div class="media-left">
-                                            <p class="text-bold-600 m-0">XRP/USD</p>
-                                            <p class="font-small-2 text-muted m-0">24h Change</p>
-                                            <p class="font-small-2 text-muted m-0">24h Volume</p>
-                                        </div>
-                                        <div class="media-body text-right">
-                                            <p class="text-bold-600 m-0">11916.9</p>
-                                            <p class="font-small-2 text-muted m-0 success">283.1 USD (+2.33%)</p>
-                                            <p class="font-small-2 text-muted m-0 text-bold-600">1029.1906 XRP</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="list-group-item list-group-item-action media p-1">
-                                    <a class="media-link" href="#">
-                                        <div class="media-left">
-                                            <p class="text-bold-600 m-0">XRP/EUR</p>
-                                            <p class="font-small-2 text-muted m-0">24h Change</p>
-                                            <p class="font-small-2 text-muted m-0">24h Volume</p>
-                                        </div>
-                                        <div class="media-body text-right">
-                                            <p class="text-bold-600 m-0">9213.3</p>
-                                            <p class="font-small-2 text-muted m-0 success">56.1 EUR (+5.52%)</p>
-                                            <p class="font-small-2 text-muted m-0 text-bold-600">560.1906 XRP</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="list-group-item list-group-item-action media p-1 border-bottom-0">
-                                    <a class="media-link" href="#">
-                                        <div class="media-left">
-                                            <p class="text-bold-600 m-0">XRP/GBP</p>
-                                            <p class="font-small-2 text-muted m-0">24h Change</p>
-                                            <p class="font-small-2 text-muted m-0">24h Volume</p>
-                                        </div>
-                                        <div class="media-body text-right">
-                                            <p class="text-bold-600 m-0">8015.1</p>
-                                            <p class="font-small-2 text-muted m-0 danger">-183.1 USD (-1.33%)</p>
-                                            <p class="font-small-2 text-muted m-0 text-bold-600">320.1906 XRP</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
+<!--/ Trade History & Place Order -->
 <!-- </section> -->
 </div>
 <!-- Trade History & Place Order -->

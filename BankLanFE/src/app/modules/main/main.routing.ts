@@ -28,6 +28,10 @@ import { ReportTravelServicesComponent } from './components/reports/report-trave
 import { ReportHistoricalComponent } from './components/reports/report-historical/report-historical.component';
 import { ReportCulturalServicesComponent } from './components/reports/report-cultural-services/report-cultural-services.component';
 import { ReportStayInformationManagerComponent } from './components/reports/report-stay-information-manager/report-stay-information-manager.component';
+import { DepositComponent } from './components/deposit/deposit.component';
+import { InvertorComponent } from './components/invertor/invertor.component';
+import { WithdrawComponent } from './components/withdraw/withdraw.component';
+import { BalanceManagementComponent } from './components/balance-management/balance-management.component';
 
 const main_Routes: Routes = [
   {
@@ -255,6 +259,26 @@ const main_Routes: Routes = [
         //   RoleConstants.Administrator,
         //   RoleConstants.Employee_Travel_Services]
         // }
+      },
+      {
+        path: 'deposit/:{id}',
+        component: DepositComponent,
+        //canActivate: [AuthGuard]
+      },
+      {
+        path: 'invertor/:{id}',
+        component: InvertorComponent,
+        //canActivate: [AuthGuard]
+      },
+      {
+        path: 'withdraw/:{id}',
+        component: WithdrawComponent,
+        //canActivate: [AuthGuard]
+      },
+      {
+        path: 'balance-management/:{id}',
+        component: BalanceManagementComponent,
+        //canActivate: [AuthGuard]
       },
       { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]

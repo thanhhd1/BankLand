@@ -71,6 +71,10 @@ import { KaraokeLicenseTypeComponent } from './components/karaoke/karaoke-licens
 import { CompanyLicenseTypeComponent } from './components/company/company-license-type/company-license-type.component';
 import { InternetLicenseTypeComponent } from './components/internet/internet-license-type/internet-license-type.component';
 import { KaraokeHistoryInfoComponent } from './components/karaoke/karaoke-history/karaoke-history-info/karaoke-history-info.component';
+import {DepositComponent} from'./components/deposit/deposit.component'
+import {InvertorComponent} from'./components/invertor/invertor.component'
+import {WithdrawComponent} from'./components/withdraw/withdraw.component'
+import { BalanceManagementComponent } from './components/balance-management/balance-management.component';
 
 @NgModule({
   imports: [
@@ -145,6 +149,10 @@ import { KaraokeHistoryInfoComponent } from './components/karaoke/karaoke-histor
     CompanyLicenseTypeComponent,
     InternetLicenseTypeComponent,
     KaraokeHistoryInfoComponent,
+    DepositComponent,
+    InvertorComponent,
+    WithdrawComponent,
+    BalanceManagementComponent
   ]
 })
 export class MainModule {}

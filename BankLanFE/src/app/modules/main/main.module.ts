@@ -75,6 +75,8 @@ import {DepositComponent} from'./components/deposit/deposit.component'
 import {InvertorComponent} from'./components/invertor/invertor.component'
 import {WithdrawComponent} from'./components/withdraw/withdraw.component'
 import { BalanceManagementComponent } from './components/balance-management/balance-management.component';
+import { QRCodeModule } from 'angularx-qrcode';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   imports: [
@@ -87,6 +89,8 @@ import { BalanceManagementComponent } from './components/balance-management/bala
     ModalModule.forRoot(),
     Select2Module,
     NgxPaginationModule,
+    QRCodeModule,
+    NgxQRCodeModule,
     NgMultiSelectDropDownModule.forRoot()
   ],
   declarations: [

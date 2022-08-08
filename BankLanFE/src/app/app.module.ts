@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { appRoute } from './app-routing';
 import { registerLocaleData } from '@angular/common';
 import localeVI from '@angular/common/locales/vi';
+
 registerLocaleData(localeVI, 'vi');
 
 @NgModule({
